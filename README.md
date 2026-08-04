@@ -21,6 +21,7 @@
 standards/    모든 프로젝트에 적용할 개인 개발 표준
 customs/      요구사항별 명세, 구현과 검증 기록
 exceptions/   Standards를 벗어나는 프로젝트별 예외
+START.md      start 명령의 프로젝트 초기 질문과 절차
 ```
 
 ### [Standards](standards/README.md)
@@ -71,13 +72,17 @@ Agent 역할, 변경 권한, 상태 전이와 역할별 사용법은 [AGENTS.md]
 2. clone 시점의 `.PROJECT_DEFAULT_VERSION`을 프로젝트 기준선으로 사용합니다.
 3. `origin`을 신규 프로젝트의 원격 저장소로 변경합니다.
 4. [Standards](standards/README.md)는 수정하지 않습니다.
-5. 사용자가 첫 번째로 완성할 사용자 결과를 자유롭게 설명합니다.
-6. Architect가 `customs/REQ-001-<영문 이름>.md`를 만들고 요구사항부터 테스트 계획까지 사용자와 순서대로 확정합니다.
-7. Requirement가 Ready가 되면 Agent가 코드와 테스트를 작성합니다.
-8. 실행한 테스트와 실제 결과를 같은 Requirement에 기록하고 Review와 Done으로 전환합니다.
-9. 다음 요구사항을 새 파일로 만들고 같은 과정을 반복합니다.
+5. Agent에게 `start`를 입력합니다.
+6. [Start Prompt](START.md)의 질문에 프로젝트 설명과 Microsoft 산출물 링크를 답변합니다.
+7. Architect가 `customs/PROJECT.md`와 `customs/REQ-001-<영문 이름>.md`를 만들고 요구사항부터 테스트 계획까지 사용자와 순서대로 확정합니다.
+8. Requirement 단계에 맞춰 요구사항 정의서, 화면 설계서, DB 테이블 정의서와 테스트 시나리오 문서를 함께 갱신합니다.
+9. Requirement가 Ready가 되면 Agent가 코드와 테스트를 작성합니다.
+10. 실행한 테스트와 실제 결과를 Requirement와 테스트 결과서에 기록하고 Review와 Done으로 전환합니다.
+11. 다음 요구사항을 새 파일로 만들고 같은 과정을 반복합니다.
 
 프로젝트 전체 양식을 먼저 작성하지 않습니다. 현재 요구사항을 구현하고 검증하는 데 필요한 내용만 대화를 통해 구체화합니다.
+
+Microsoft 문서는 검토와 공유를 위한 산출물입니다. 구현 기준은 저장소의 Requirement이며, 두 내용이 다르면 Requirement를 기준으로 원인을 확인하고 같은 작업에서 동기화합니다.
 
 신규 프로젝트는 clone한 버전을 유지하며 이후 `project-default` 버전으로 자동 또는 수동 업그레이드하지 않습니다.
 
