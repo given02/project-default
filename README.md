@@ -75,7 +75,7 @@ Agent 역할, 변경 권한, 상태 전이와 역할별 사용법은 [AGENTS.md]
 5. Agent에게 `start`를 입력합니다.
 6. [Start Prompt](START.md)의 질문에 프로젝트 설명과 Microsoft 산출물 링크를 답변합니다.
 7. Architect가 `customs/PROJECT.md`와 `customs/REQ-001-<영문 이름>.md`를 만들고 요구사항부터 테스트 계획까지 사용자와 순서대로 확정합니다.
-8. Requirement 단계에 맞춰 요구사항 정의서, 화면 설계서, DB 테이블 정의서와 테스트 시나리오 문서를 함께 갱신합니다.
+8. Requirement 단계에 맞춰 요구사항 정의서, 기능 명세서, 화면 설계서, DB 테이블 정의서와 테스트 시나리오 문서를 함께 갱신합니다.
 9. Requirement가 Ready가 되면 Agent가 코드와 테스트를 작성합니다.
 10. 실행한 테스트와 실제 결과를 Requirement와 테스트 결과서에 기록하고 Review와 Done으로 전환합니다.
 11. 다음 요구사항을 새 파일로 만들고 같은 과정을 반복합니다.

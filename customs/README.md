@@ -24,12 +24,13 @@
 | 산출물 | 형식 | 링크 | 적용 여부 |
 | ------ | ---- | ---- | --------- |
 | 요구사항 정의서 | Microsoft Word | 편집 링크 | 적용 |
+| 기능 명세서 | Microsoft Word | 편집 링크 | 적용 |
 | 화면 설계서 | Microsoft PowerPoint | 편집 링크 또는 해당 없음 | 적용 / 해당 없음 |
 | DB 테이블 정의서 | Microsoft Excel | 편집 링크 또는 해당 없음 | 적용 / 해당 없음 |
 | 테스트 시나리오 및 결과서 | Microsoft Excel | 편집 링크 | 적용 |
 ```
 
-- 요구사항 정의서와 테스트 시나리오 및 결과서는 필수입니다.
+- 요구사항 정의서, 기능 명세서와 테스트 시나리오 및 결과서는 필수입니다.
 - 화면이나 Database가 없는 프로젝트는 해당 산출물을 `해당 없음`으로 기록합니다.
 - 링크가 바뀌면 `PROJECT.md`를 즉시 갱신합니다.
 - credential, access token과 비공개 공유 암호를 링크 옆에 기록하지 않습니다.
@@ -111,6 +112,7 @@ Architect, Backend Developer, Frontend Developer 중 필요한 역할
 ## 산출물 반영 위치
 
 - 요구사항 정의서: 문서의 section, heading 또는 표 식별자
+- 기능 명세서: 문서의 section, heading 또는 표 식별자
 - 화면 설계서: slide 번호 또는 section / 해당 없음
 - DB 테이블 정의서: sheet와 table 범위 / 해당 없음
 - 테스트 시나리오 및 결과서: sheet와 test ID 범위
@@ -236,7 +238,8 @@ Architect, Backend Developer, Frontend Developer 중 필요한 역할
 
 | Requirement 단계 | Microsoft 산출물 | 반영 내용 |
 | ---------------- | ---------------- | --------- |
-| 요구사항 정의와 기능 명세 | 요구사항 정의서 | 사용자, 문제, 범위, acceptance criteria, 정상 흐름, Business Rule, 입력·출력과 계약 |
+| 요구사항 정의 | 요구사항 정의서 | 사용자, 문제, 범위와 acceptance criteria |
+| 기능 명세 | 기능 명세서 | 정상 흐름, Business Rule, 입력·출력과 계약 |
 | 화면 설계 | 화면 설계서 | 화면, route, 구성 요소, action, 상태, 반응형과 접근성 |
 | Database 설계 | DB 테이블 정의서 | table, column, type, key, constraint, index와 migration 영향 |
 | 테스트 계획 | 테스트 시나리오 및 결과서 | test ID, 사전 조건, 입력·절차와 기대 결과 |
