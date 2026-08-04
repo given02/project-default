@@ -8,12 +8,12 @@ Agent는 이전 대화가 아니라 저장소 문서를 프로젝트 맥락의 s
 
 ## `start` 명령
 
-사용자가 공백을 제외하고 `start`만 입력하면 대소문자와 관계없이 [START.md](standards/START.md)를 읽고 그 절차를 실행합니다.
+사용자가 공백을 제외하고 `start`만 입력하면 대소문자와 관계없이 [Start Prompt](workflow/start.md)를 읽고 그 절차를 실행합니다.
 
 - 첫 응답에서는 프로젝트 설명과 다섯 산출물에 대응하는 Google Sheets 및 Figma 링크를 요청합니다.
 - 답변을 받기 전에 프로젝트 파일, Requirement 또는 production 코드를 만들지 않습니다.
 - 사용자가 답변하면 `customs/PROJECT.md`에 프로젝트 설명과 산출물 링크를 기록합니다.
-- 요구사항·기능 명세 통합 Google Sheets와 테스트 시나리오 및 결과 Google Sheets는 필수입니다.
+- 요구사항 정의, 기능 명세와 테스트 시나리오 및 결과 Google Sheets는 각각 필수입니다.
 - 화면 또는 Database가 없는 프로젝트는 해당 산출물에 `해당 없음`을 허용합니다.
 - 링크에 직접 접근할 수 없으면 접근 가능한 것처럼 행동하지 않고 반영할 내용을 사용자에게 제공합니다.
 
@@ -50,9 +50,8 @@ Frontend Developer
 
 | 영역                                  | Source Of Truth                     | Architect               | Backend Developer                         | Frontend Developer                        |
 | ------------------------------------- | ----------------------------------- | ----------------------- | ----------------------------------------- | ----------------------------------------- |
+| [`workflow/`](workflow/README.md)      | 시작과 산출물 운영 절차             | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
 | [`standards/`](standards/README.md)   | 공통 원칙과 기술별 구현 표준        | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
-| [`standards/START.md`](standards/START.md)         | start 초기 질문과 절차            | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
-| [`standards/ARTIFACTS.md`](standards/ARTIFACTS.md) | 외부 산출물 생성 규격과 작성 규칙 | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
 | [`customs/`](customs/README.md)       | 요구사항, 설계, 상태와 검증 증거    | 생성, 명세, 검토와 승인 | 상태, Blocked, Backend 구현과 테스트 기록 | 상태, Blocked, Frontend 구현과 테스트 기록 |
 | [`exceptions/`](exceptions/README.md) | 고정 규칙의 프로젝트별 예외         | 작성 및 변경            | 읽기 전용                                 | 읽기 전용                                 |
 | Backend 코드                          | Backend 구현                        | 통합 검토               | 작성 및 변경                              | 읽기 전용                                 |
@@ -62,11 +61,13 @@ Developer는 Customs에서 상태, Blocked, 자신이 담당한 구현 결과와
 
 ### project-default 예외
 
-`project-default` 저장소에서 사용자가 명시적으로 템플릿 Standard 변경을 요청한 경우에만 Architect가 Template Maintainer로서 `standards/`를 변경할 수 있습니다.
+`project-default` 저장소에서 사용자가 명시적으로 템플릿 Workflow 또는 Standard 변경을 요청한 경우에만 Architect가 Template Maintainer로서 `workflow/` 또는 `standards/`를 변경할 수 있습니다.
 
-clone으로 생성한 실제 프로젝트에서는 어떤 역할도 `standards/`를 직접 변경할 수 없습니다. Standard를 벗어나야 하면 Exception을 작성합니다.
+clone으로 생성한 실제 프로젝트에서는 어떤 역할도 `workflow/`와 `standards/`를 직접 변경할 수 없습니다. 프로젝트별 값과 적용 여부는 Customs에 기록하고 Standard를 벗어나야 하면 Exception을 작성합니다.
 
 ## 규칙 적용 순서
+
+Workflow는 프로젝트를 시작하고 산출물을 갱신하는 시점을 정의합니다. 구현 의미와 우선순위는 다음 순서를 따릅니다.
 
 ```text
 Standards
@@ -114,7 +115,7 @@ Architect는 Product Manager, UX/UI 설계 책임자, Software Architect와 작�
 - 사용자의 설명에서 독립적으로 검증 가능한 사용자 결과를 식별합니다.
 - Requirement 파일을 만들고 요구사항, 기능 명세, 화면 설계와 Database 설계를 순서대로 작성합니다.
 - 구현 전에 테스트 항목, 기대 결과와 검증 방법을 정의합니다.
-- 요구사항 정의와 기능 명세는 통합 Google Sheets의 지정 시트, 화면 설계는 Figma, Database 설계는 DB 테이블 정의 Google Sheets, 테스트 계획은 테스트 시나리오 및 결과 Google Sheets에 반영합니다.
+- 요구사항 정의와 기능 명세는 각각의 Google Sheets, 화면 설계는 Figma, Database 설계는 DB 테이블 정의 Google Sheets, 테스트 계획은 테스트 시나리오 및 결과 Google Sheets에 반영합니다.
 - 외부 산출물의 링크와 반영 위치를 Requirement에 기록합니다.
 - 기술 선택, 비즈니스 규칙, API, 인증, 데이터와 운영 제약을 현재 Requirement에 필요한 수준으로 확정합니다.
 - Requirement가 Ready 기준을 충족하는지 검토합니다.
@@ -134,12 +135,13 @@ Architect는 Product Manager, UX/UI 설계 책임자, Software Architect와 작�
 
 1. [README.md](README.md)
 2. [AGENTS.md](AGENTS.md)
-3. [Standards](standards/README.md)
-4. [Customs](customs/README.md)
-5. [Artifact Templates](standards/ARTIFACTS.md)
-6. [Exceptions](exceptions/README.md)
-7. 현재 Requirement와 참조된 선행 Requirement
-8. 현재 Requirement에 적용되는 Standards와 Exceptions
+3. [Workflow](workflow/README.md)
+4. [Standards](standards/README.md)
+5. [Customs](customs/README.md)
+6. [Artifact Templates](workflow/artifacts.md)
+7. [Exceptions](exceptions/README.md)
+8. 현재 Requirement와 참조된 선행 Requirement
+9. 현재 Requirement에 적용되는 Standards와 Exceptions
 
 ## Backend Developer
 
@@ -168,7 +170,7 @@ Backend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Back
 2. [AGENTS.md](AGENTS.md)
 3. 현재 Requirement
 4. 참조된 선행 Requirement
-5. [Artifact Templates](standards/ARTIFACTS.md)
+5. [Artifact Templates](workflow/artifacts.md)
 6. [Common Standards](standards/common/README.md)
 7. [Backend Standards](standards/backend/README.md)
 8. [Database Standards](standards/database/README.md)
@@ -202,7 +204,7 @@ Frontend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Fro
 2. [AGENTS.md](AGENTS.md)
 3. 현재 Requirement
 4. 참조된 선행 Requirement
-5. [Artifact Templates](standards/ARTIFACTS.md)
+5. [Artifact Templates](workflow/artifacts.md)
 6. [Common Standards](standards/common/README.md)
 7. [Frontend Standards](standards/frontend/README.md)
 8. 적용되는 기술 Standards와 Exceptions
