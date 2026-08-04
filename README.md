@@ -18,16 +18,16 @@
 ## 저장소 구조
 
 ```text
-standards/    모든 프로젝트에 적용할 개인 개발 표준
+standards/    개발, 프로젝트 시작과 산출물에 적용할 개인 표준
 customs/      요구사항별 명세, 구현과 검증 기록
 exceptions/   Standards를 벗어나는 프로젝트별 예외
-START.md      start 명령의 프로젝트 초기 질문과 절차
-ARTIFACTS.md  Google Sheets와 Figma 산출물 생성 규격
 ```
 
 ### [Standards](standards/README.md)
 
 기술과 독립적인 공통 원칙과 Spring Boot, Spring Data JPA, React, TypeScript, PostgreSQL의 구체적인 구현 방식을 정의합니다.
+
+프로젝트 초기 질문은 [Start Prompt](standards/START.md), Google Sheets와 Figma 산출물 규격은 [Artifact Templates](standards/ARTIFACTS.md)에 정의합니다.
 
 개별 프로젝트에서는 `standards/`를 수정하지 않습니다. 변경은 `project-default`의 새 버전 배포를 통해서만 이루어집니다.
 
@@ -74,9 +74,9 @@ Agent 역할, 변경 권한, 상태 전이와 역할별 사용법은 [AGENTS.md]
 3. `origin`을 신규 프로젝트의 원격 저장소로 변경합니다.
 4. [Standards](standards/README.md)는 수정하지 않습니다.
 5. Agent에게 `start`를 입력합니다.
-6. [Start Prompt](START.md)의 질문에 프로젝트 설명, 새 Google Sheets와 Figma 링크를 답변합니다.
+6. [Start Prompt](standards/START.md)의 질문에 프로젝트 설명, 새 Google Sheets와 Figma 링크를 답변합니다.
 7. Architect가 `customs/PROJECT.md`와 `customs/REQ-001-<영문 이름>.md`를 만들고 요구사항부터 테스트 계획까지 사용자와 순서대로 확정합니다.
-8. [Artifact Templates](ARTIFACTS.md)를 기준으로 요구사항 정의서, 기능 명세서, Figma 화면 설계, DB 테이블 정의서와 테스트 시나리오 문서를 함께 갱신합니다.
+8. [Artifact Templates](standards/ARTIFACTS.md)를 기준으로 요구사항 정의서, 기능 명세서, Figma 화면 설계, DB 테이블 정의서와 테스트 시나리오 문서를 함께 갱신합니다.
 9. Requirement가 Ready가 되면 Agent가 코드와 테스트를 작성합니다.
 10. 실행한 테스트와 실제 결과를 Requirement와 테스트 결과서에 기록하고 Review와 Done으로 전환합니다.
 11. 다음 요구사항을 새 파일로 만들고 같은 과정을 반복합니다.

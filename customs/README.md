@@ -8,7 +8,7 @@
 
 `start` 초기화가 완료되면 `PROJECT.md`에 프로젝트 설명과 Google Sheets·Figma 산출물 링크를 기록합니다. Requirement는 구현의 source of truth이고 외부 문서는 검토와 공유를 위한 동기화 산출물입니다.
 
-외부 산출물을 생성하고 작성할 때는 [Artifact Templates](../ARTIFACTS.md)에 자체적으로 정의된 구조를 따릅니다.
+외부 산출물을 생성하고 작성할 때는 [Artifact Templates](../standards/ARTIFACTS.md)에 자체적으로 정의된 구조를 따릅니다.
 
 ## 프로젝트 정보 파일
 

@@ -8,7 +8,7 @@ Agent는 이전 대화가 아니라 저장소 문서를 프로젝트 맥락의 s
 
 ## `start` 명령
 
-사용자가 공백을 제외하고 `start`만 입력하면 대소문자와 관계없이 [START.md](START.md)를 읽고 그 절차를 실행합니다.
+사용자가 공백을 제외하고 `start`만 입력하면 대소문자와 관계없이 [START.md](standards/START.md)를 읽고 그 절차를 실행합니다.
 
 - 첫 응답에서는 프로젝트 설명과 다섯 산출물에 대응하는 Google Sheets 및 Figma 링크를 요청합니다.
 - 답변을 받기 전에 프로젝트 파일, Requirement 또는 production 코드를 만들지 않습니다.
@@ -51,8 +51,8 @@ Frontend Developer
 | 영역                                  | Source Of Truth                     | Architect               | Backend Developer                         | Frontend Developer                        |
 | ------------------------------------- | ----------------------------------- | ----------------------- | ----------------------------------------- | ----------------------------------------- |
 | [`standards/`](standards/README.md)   | 공통 원칙과 기술별 구현 표준        | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
-| [`START.md`](START.md)                | start 초기 질문과 절차              | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
-| [`ARTIFACTS.md`](ARTIFACTS.md)        | 외부 산출물 생성 규격과 작성 규칙   | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
+| [`standards/START.md`](standards/START.md)         | start 초기 질문과 절차            | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
+| [`standards/ARTIFACTS.md`](standards/ARTIFACTS.md) | 외부 산출물 생성 규격과 작성 규칙 | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
 | [`customs/`](customs/README.md)       | 요구사항, 설계, 상태와 검증 증거    | 생성, 명세, 검토와 승인 | 상태, Blocked, Backend 구현과 테스트 기록 | 상태, Blocked, Frontend 구현과 테스트 기록 |
 | [`exceptions/`](exceptions/README.md) | 고정 규칙의 프로젝트별 예외         | 작성 및 변경            | 읽기 전용                                 | 읽기 전용                                 |
 | Backend 코드                          | Backend 구현                        | 통합 검토               | 작성 및 변경                              | 읽기 전용                                 |
@@ -136,7 +136,7 @@ Architect는 Product Manager, UX/UI 설계 책임자, Software Architect와 작�
 2. [AGENTS.md](AGENTS.md)
 3. [Standards](standards/README.md)
 4. [Customs](customs/README.md)
-5. [Artifact Templates](ARTIFACTS.md)
+5. [Artifact Templates](standards/ARTIFACTS.md)
 6. [Exceptions](exceptions/README.md)
 7. 현재 Requirement와 참조된 선행 Requirement
 8. 현재 Requirement에 적용되는 Standards와 Exceptions
@@ -168,7 +168,7 @@ Backend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Back
 2. [AGENTS.md](AGENTS.md)
 3. 현재 Requirement
 4. 참조된 선행 Requirement
-5. [Artifact Templates](ARTIFACTS.md)
+5. [Artifact Templates](standards/ARTIFACTS.md)
 6. [Common Standards](standards/common/README.md)
 7. [Backend Standards](standards/backend/README.md)
 8. [Database Standards](standards/database/README.md)
@@ -202,7 +202,7 @@ Frontend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Fro
 2. [AGENTS.md](AGENTS.md)
 3. 현재 Requirement
 4. 참조된 선행 Requirement
-5. [Artifact Templates](ARTIFACTS.md)
+5. [Artifact Templates](standards/ARTIFACTS.md)
 6. [Common Standards](standards/common/README.md)
 7. [Frontend Standards](standards/frontend/README.md)
 8. 적용되는 기술 Standards와 Exceptions

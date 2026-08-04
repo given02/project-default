@@ -18,6 +18,8 @@ Standard 자체의 변경은 `project-default`에서 Template Maintainer가 수�
 
 ```text
 standards/
+├── START.md                     start 명령의 프로젝트 초기 질문과 절차
+├── ARTIFACTS.md                 Google Sheets와 Figma 산출물 생성 규격
 ├── common/                      기술 독립적인 아키텍처, 코드 품질, 테스트와 보안
 ├── backend/
 │   ├── 공통 Backend 규칙
@@ -32,6 +34,8 @@ standards/
 ```
 
 기술별 규칙도 모든 프로젝트에 배포되는 고정 Standard입니다. 실제 프로젝트에는 사용 중인 기술 경로의 Standard만 적용합니다.
+
+`START.md`와 `ARTIFACTS.md`는 모든 프로젝트에 적용되는 운영 Standard입니다. 프로젝트별 값은 포함하지 않고 시작 절차와 산출물 구조만 정의합니다.
 
 ## 표준의 효력
 
@@ -74,7 +78,7 @@ STD-DB-PG-010     PostgreSQL
 
 ## 파일 이름
 
-`README.md`를 제외한 Standard 파일은 다음 형식을 사용합니다.
+규칙 ID를 소유하는 구현 Standard 파일은 다음 형식을 사용합니다.
 
 ```text
 <RULE-PREFIX>-<2자리 구간>-<lowercase-kebab-case>.md
@@ -93,6 +97,7 @@ DB-PG-03-index-convention.md
 - 파일 번호 `01`, `02`, `03`은 각각 규칙 ID `010~019`, `020~029`, `030~039`와 대응합니다.
 - 같은 디렉터리에서 동일한 prefix와 파일 번호를 재사용하지 않습니다.
 - 파일의 책임이 10개 규칙 범위를 넘으면 다음 번호 파일로 분리합니다.
+- 운영 진입 문서인 `START.md`와 `ARTIFACTS.md`는 규칙 ID를 소유하지 않으며 이 파일 이름 규칙의 적용 대상이 아닙니다.
 
 ## Standard 작성 규칙
 
@@ -110,10 +115,12 @@ Template Maintainer는 Standard를 작성하거나 변경할 때 다음을 준�
 ## 읽기 순서
 
 1. `README.md`
-2. `common/`
-3. 현재 역할의 `backend/` 또는 `frontend/`
-4. 프로젝트에서 사용하는 Backend 또는 Frontend 기술 Standard
-5. 데이터 저장을 사용하는 경우 `database/`
-6. 프로젝트에서 사용하는 Database 기술 Standard
+2. 프로젝트 시작 시 `START.md`
+3. 산출물을 생성하거나 갱신할 때 `ARTIFACTS.md`
+4. `common/`
+5. 현재 역할의 `backend/` 또는 `frontend/`
+6. 프로젝트에서 사용하는 Backend 또는 Frontend 기술 Standard
+7. 데이터 저장을 사용하는 경우 `database/`
+8. 프로젝트에서 사용하는 Database 기술 Standard
 
 작업과 관계없는 모든 Standard를 매번 읽을 필요는 없지만 현재 역할과 선택된 기술에 적용되는 규칙은 작업 전에 확인합니다.
