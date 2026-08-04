@@ -118,6 +118,8 @@ Cancelled
 
 필요한 참조 문서, 선행 Task, 범위와 검증 방법이 준비되었습니다. 할당된 Agent가 작업을 시작할 수 있습니다.
 
+프로젝트의 모든 Customs가 완성될 필요는 없습니다. 이 Task가 참조하거나 구현 중 영향을 주는 Customs 항목에 해결되지 않은 placeholder, 모호함 또는 충돌이 없어야 합니다.
+
 ### In Progress
 
 할당된 Agent가 구현과 검증을 수행하고 있습니다.
@@ -239,6 +241,7 @@ Backend Developer | Frontend Developer | Architect
 - 적용할 Standard 전체를 나열하지 않고 작업과 직접 관련된 규칙 ID만 필요한 경우 기록합니다.
 - Exception이 적용되면 Exception ID를 명시합니다.
 - 선행 Task가 완료되지 않았으면 현재 Task를 Ready로 전환하지 않습니다.
+- 현재 Task와 연결된 Customs가 [Task Ready 기준](../customs/README.md#task-ready-기준)을 충족하지 않으면 Ready로 전환하지 않습니다.
 
 ## Blocked 처리
 

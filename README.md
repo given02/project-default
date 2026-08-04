@@ -4,7 +4,7 @@
 
 `project-default`는 신규 프로젝트를 일관된 방식으로 기획, 설계, 구현하고 검증하기 위한 개인 프로젝트 템플릿입니다.
 
-모든 프로젝트에서 유지할 개발 원칙과 기술별 구현 규칙을 기준선으로 제공하고, 프로젝트마다 달라지는 제품 요구사항과 설계 내용을 순서대로 작성할 수 있게 합니다. Agent는 저장소 문서를 source of truth로 사용하며, 이전 대화에 의존하지 않고 문서와 작업 지시를 기반으로 코드를 작성합니다.
+모든 프로젝트에서 유지할 개발 원칙과 기술별 구현 규칙을 기준선으로 제공하고, 프로젝트마다 달라지는 제품 요구사항과 설계 내용을 필요한 시점에 구체화할 수 있게 합니다. 사용자는 최소한의 Project Brief로 시작하고, Architect는 대화를 통해 현재 목표에 필요한 문서를 점진적으로 완성합니다. Agent는 저장소 문서를 source of truth로 사용하며, 이전 대화에 의존하지 않고 문서와 작업 지시를 기반으로 코드를 작성합니다.
 
 ## 핵심 원칙
 
@@ -79,9 +79,13 @@ Agent 역할, 변경 권한과 역할별 사용법은 [AGENTS.md](AGENTS.md)를 
 2. clone 시점의 `.PROJECT_DEFAULT_VERSION`을 프로젝트 기준선으로 사용합니다.
 3. `origin`을 신규 프로젝트의 원격 저장소로 변경합니다.
 4. [Standards](standards/README.md)는 수정하지 않습니다.
-5. [Customs](customs/README.md)를 번호순으로 작성해 프로젝트 요구사항과 설계를 확정합니다.
-6. [Tasks](tasks/README.md)의 기준에 따라 구현할 기능을 Task로 분할합니다.
-7. Agent가 관련 문서를 읽고 코드와 테스트를 작성합니다.
+5. [Project Overview](customs/010-project-overview.md)에 프로젝트 이름, 한 줄 설명, 주요 사용자, 해결할 문제, 첫 번째 완성 목표와 초기 범위를 작성합니다.
+6. [Technology Stack](customs/050-technology-stack.md)의 기본값을 사용할지 확인하고 변경할 항목만 기록합니다.
+7. Architect와 대화하며 첫 번째 목표에 필요한 Customs만 구체화합니다.
+8. 관련 문서에 미정 사항이 없으면 [Tasks](tasks/README.md)의 기준에 따라 구현할 기능을 Task로 분할합니다.
+9. Agent가 Task와 관련 문서를 읽고 코드와 테스트를 작성합니다.
+
+처음부터 모든 Customs를 채울 필요는 없습니다. 이후 기능을 진행할 때마다 해당 기능과 연결된 요구사항, 비즈니스 규칙, UX, 도메인, Database와 API 문서를 먼저 갱신하고 Task를 Ready로 전환합니다.
 
 신규 프로젝트는 clone한 버전을 유지하며 이후 `project-default` 버전으로 자동 또는 수동 업그레이드하지 않습니다.
 

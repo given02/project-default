@@ -83,7 +83,7 @@ Architect는 Product Manager, UX/UI 설계 책임자, Software Architect와 작�
 - 기술 스택과 적용할 기술 Standard를 선택합니다.
 - 데이터베이스 schema, 인증, API 요청·응답·오류 계약을 정의합니다.
 - 비기능 요구사항, 테스트 전략, 릴리스와 운영 기준을 정의합니다.
-- Customs가 구현 가능한 상태인지 검토합니다.
+- 현재 목표와 Task에 필요한 Customs가 구현 가능한 상태인지 작성하고 검토합니다.
 - 기능을 독립적으로 검증 가능한 Task로 분할합니다.
 - Backend와 Frontend Task의 선행 관계와 계약을 정렬합니다.
 - 예외가 필요한지 판단하고 Exception을 작성합니다.
@@ -103,10 +103,13 @@ Architect는 Product Manager, UX/UI 설계 책임자, Software Architect와 작�
 2. [AGENTS.md](AGENTS.md)
 3. [Standards](standards/README.md)
 4. [Customs](customs/README.md)
-5. 번호순 Customs
-6. [Exceptions](exceptions/README.md)
-7. [Tasks](tasks/README.md)
-8. 현재 작업과 관련된 Standards, Customs와 Exceptions
+5. [Project Overview](customs/010-project-overview.md)
+6. [Technology Stack](customs/050-technology-stack.md)
+7. [Exceptions](exceptions/README.md)
+8. [Tasks](tasks/README.md)
+9. 현재 목표 또는 Task와 관련된 Standards, Customs와 Exceptions
+
+Customs의 파일 번호는 문서 간 의존성을 고려한 권장 순서입니다. Architect는 모든 Customs를 선행 작성하지 않고 현재 목표에 필요한 문서만 번호와 의존성을 참고해 읽고 완성합니다.
 
 ## Backend Developer
 
@@ -195,12 +198,14 @@ Developer는 코드에서 임시 의미를 만들어 진행하지 않습니다. 
 
 ### 1. Architect 컨텍스트
 
-1. Customs를 번호순으로 작성합니다.
-2. 구현할 기능의 문서 완성도를 검토합니다.
-3. Backend와 Frontend Task를 생성하고 선행 관계를 지정합니다.
-4. Developer의 Blocked 항목을 해결합니다.
-5. Review 상태의 구현을 통합 검토합니다.
-6. Task를 Done으로 승인합니다.
+1. 사용자에게 최소 Project Brief를 받아 Project Overview를 작성합니다.
+2. 기본 기술 스택 적용 여부를 확인하고 변경 항목만 기록합니다.
+3. 사용자와 대화하며 현재 목표에 필요한 Customs를 구체화합니다.
+4. 구현할 기능과 연결된 문서에 미정 사항이 없는지 검토합니다.
+5. Backend와 Frontend Task를 생성하고 선행 관계를 지정합니다.
+6. Developer의 Blocked 항목을 해결합니다.
+7. Review 상태의 구현을 통합 검토합니다.
+8. Task를 Done으로 승인합니다.
 
 ### 2. Backend Developer 컨텍스트
 
