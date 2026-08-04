@@ -2,7 +2,7 @@
 
 ## 목적
 
-`standards/backend/spring-boot/spring-data-jpa/`는 Customs에서 Spring Data JPA를 persistence 기술로 선택한 프로젝트에 적용할 entity, repository, query, transaction과 테스트 규칙을 정의합니다.
+`standards/backend/spring-boot/spring-data-jpa/`는 Requirement에서 Spring Data JPA를 persistence 기술로 선택한 프로젝트에 적용할 entity, repository, query, transaction과 테스트 규칙을 정의합니다.
 
 ## 문서
 

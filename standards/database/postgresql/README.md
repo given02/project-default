@@ -2,7 +2,7 @@
 
 ## 목적
 
-`standards/database/postgresql/`는 Customs에서 PostgreSQL을 Database로 선택한 프로젝트에 적용할 type, constraint, index, migration과 테스트 규칙을 정의합니다.
+`standards/database/postgresql/`는 Requirement에서 PostgreSQL을 Database로 선택한 프로젝트에 적용할 type, constraint, index, migration과 테스트 규칙을 정의합니다.
 
 ## 문서
 

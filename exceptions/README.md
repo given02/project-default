@@ -6,7 +6,7 @@
 
 Exception 파일이 존재하면 해당 파일에 선언된 범위에서 예외가 적용됩니다. 제안, 검토 중이거나 더 이상 적용하지 않는 예외는 이 디렉터리에 유지하지 않습니다.
 
-대상 규칙은 [Standards](../standards/README.md)의 규칙 ID로 지정합니다. 작성 책임과 변경 권한은 [AGENTS.md](../AGENTS.md)를 따르며, 구현할 때는 관련 [Task](../tasks/README.md)에 Exception ID를 연결합니다.
+대상 규칙은 [Standards](../standards/README.md)의 규칙 ID로 지정합니다. 작성 책임과 변경 권한은 [AGENTS.md](../AGENTS.md)를 따르며, 구현할 때는 관련 [Requirement](../customs/README.md)에 Exception ID를 연결합니다.
 
 ## 작성 조건
 
@@ -85,10 +85,6 @@ Exception은 적용 범위를 구체적으로 제한해야 합니다.
 - Backend 또는 Frontend
 - component 또는 package
 - Requirement ID
-- Business Rule ID
-- API ID
-- Screen ID
-- Task ID
 - 실행 환경
 
 `전체 프로젝트`, `모든 코드`, `필요한 곳`처럼 검증할 수 없는 범위는 사용하지 않습니다.
@@ -137,8 +133,7 @@ Standard를 유지하기 위해 검토한 방법과 사용하지 않은 이유
 
 ## 관련 항목
 
-- Customs ID:
-- Task ID:
+- Requirement ID:
 ```
 
 적용되지 않는 선택 항목에는 `해당 없음`과 이유를 기록합니다.

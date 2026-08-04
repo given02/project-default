@@ -40,4 +40,4 @@ Conventional Commits 형식을 사용합니다.
 | `chore`  | 다른 유형에 포함되지 않는 유지보수         |
 | `revert` | 이전 commit 되돌리기                       |
 
-관련 Task는 `Refs: TSK-001` 형식으로 연결합니다. GitHub issue를 종료할 때는 `Closes: #123`을 사용합니다.
+관련 Requirement는 `Refs: REQ-001` 형식으로 연결합니다. GitHub issue를 종료할 때는 `Closes: #123`을 사용합니다.

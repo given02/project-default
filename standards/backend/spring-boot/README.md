@@ -2,7 +2,7 @@
 
 ## 목적
 
-`standards/backend/spring-boot/`는 Customs에서 Spring Boot를 Backend framework로 선택한 프로젝트에 적용할 고정 구현 규칙을 정의합니다.
+`standards/backend/spring-boot/`는 Requirement에서 Spring Boot를 Backend framework로 선택한 프로젝트에 적용할 고정 구현 규칙을 정의합니다.
 
 ## 문서
 

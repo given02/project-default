@@ -15,7 +15,7 @@ src/
 └── utils/        domain 의미가 없는 utility
 ```
 
-실제 생성 경로와 사용하지 않는 디렉터리는 Customs의 프로젝트 환경에서 확정합니다.
+실제 생성 경로와 사용하지 않는 디렉터리는 프로젝트 Bootstrap Requirement에서 확정합니다.
 
 ## 기준
 

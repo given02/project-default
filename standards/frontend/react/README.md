@@ -2,7 +2,7 @@
 
 ## 목적
 
-`standards/frontend/react/`는 Customs에서 React와 TypeScript를 Frontend 기술로 선택한 프로젝트에 적용할 고정 구현 규칙을 정의합니다.
+`standards/frontend/react/`는 Requirement에서 React와 TypeScript를 Frontend 기술로 선택한 프로젝트에 적용할 고정 구현 규칙을 정의합니다.
 
 ## 문서
 

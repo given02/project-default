@@ -17,4 +17,4 @@
 | `DB-07-reference-data-and-operation.md`         | 기준 데이터와 배포 후 확인               |
 | `postgresql/`                                   | PostgreSQL을 선택한 프로젝트의 구현 규칙 |
 
-Database 작업은 이 디렉터리의 공통 규칙을 먼저 적용하고, Customs에서 PostgreSQL을 선택한 경우 `postgresql/` 규칙을 함께 적용합니다.
+Database 작업은 이 디렉터리의 공통 규칙을 먼저 적용하고, Requirement에서 PostgreSQL을 선택한 경우 `postgresql/` 규칙을 함께 적용합니다.

@@ -14,4 +14,4 @@
 | `FE-04-responsive-content-convention.md` | 반응형 콘텐츠와 animation |
 | `react/` | React와 TypeScript를 선택한 프로젝트의 구현 규칙 |
 
-Frontend 작업은 이 디렉터리의 공통 규칙을 먼저 적용하고, Customs에서 React를 선택한 경우 `react/` 규칙을 함께 적용합니다.
+Frontend 작업은 이 디렉터리의 공통 규칙을 먼저 적용하고, Requirement에서 React를 선택한 경우 `react/` 규칙을 함께 적용합니다.

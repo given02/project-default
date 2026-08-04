@@ -10,7 +10,7 @@
 
 ## 변경 절차
 
-- **STD-DB-055** migration 작성 전에 관련 Requirement, Business Rule, Domain, API와 Customs database schema 영향을 확인합니다.
+- **STD-DB-055** migration 작성 전에 현재 및 선행 Requirement의 기능, 계약과 Database 설계 영향을 확인합니다.
 - **STD-DB-056** 호환성, lock, 실행 시간, 저장 공간, 데이터 변환과 복구 위험을 분석합니다.
 - **STD-DB-057** migration은 빈 Database와 지원하는 기존 version에서 모두 적용을 검증합니다.
 - **STD-DB-058** 배포 중 구버전과 신버전 application이 공존할 수 있는지 확인하고 배포 순서를 정의합니다.

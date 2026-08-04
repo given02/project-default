@@ -17,4 +17,4 @@
 | `BE-07-file-storage-convention.md`   | 파일 검증, 저장, 접근과 생명주기          |
 | `spring-boot/`                       | Spring Boot를 선택한 프로젝트의 구현 규칙 |
 
-Backend 작업은 이 디렉터리의 공통 규칙을 먼저 적용하고, Customs에서 Spring Boot를 선택한 경우 `spring-boot/` 규칙을 함께 적용합니다.
+Backend 작업은 이 디렉터리의 공통 규칙을 먼저 적용하고, Requirement에서 Spring Boot를 선택한 경우 `spring-boot/` 규칙을 함께 적용합니다.

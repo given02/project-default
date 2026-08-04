@@ -3,7 +3,7 @@
 ## 기준
 
 - **STD-BE-JPA-010** JPA entity는 persistence model이며 API 요청·응답 타입으로 사용하지 않습니다.
-- **STD-BE-JPA-011** Entity의 table, column, key, nullable과 constraint mapping은 Customs의 database schema와 migration에 일치시킵니다.
+- **STD-BE-JPA-011** Entity의 table, column, key, nullable과 constraint mapping은 Requirement의 Database 설계와 migration에 일치시킵니다.
 - **STD-BE-JPA-012** 기본 생성자는 JPA에 필요한 최소 접근 수준으로 제한합니다.
 - **STD-BE-JPA-013** Entity 상태는 public setter를 일괄 제공하지 않고 의미 있는 생성 및 변경 메서드를 통해 바꿉니다.
 - **STD-BE-JPA-014** `equals`와 `hashCode`는 영속화 전후에 변하는 값이나 지연 로딩 연관관계 전체에 의존하지 않습니다.

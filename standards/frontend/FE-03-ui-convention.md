@@ -2,7 +2,7 @@
 
 ## 디자인과 재사용
 
-- **STD-FE-030** 색상, spacing, typography, radius, elevation과 breakpoint는 Customs의 design system에 정의된 token을 사용합니다.
+- **STD-FE-030** 색상, spacing, typography, radius, elevation과 breakpoint는 Requirement의 화면 설계에서 정의하거나 참조한 token을 사용합니다.
 - **STD-FE-031** 같은 의미와 상호작용을 가진 component를 feature마다 중복 구현하지 않고 실제 다중 소비가 확인되면 공유 component로 이동합니다.
 - **STD-FE-032** component variant는 시각적 차이보다 의미와 상태를 기준으로 이름 붙입니다.
 - **STD-FE-033** loading, empty, error, disabled, success, partial과 권한 상태를 화면 명세에 따라 명시적으로 구현합니다.

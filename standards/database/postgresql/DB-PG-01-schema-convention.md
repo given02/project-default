@@ -9,5 +9,5 @@
 - **STD-DB-PG-014** 금액과 정확한 소수 계산에는 precision과 scale이 명확한 `numeric`을 사용합니다.
 - **STD-DB-PG-015** 문자열 길이가 실제 business constraint가 아니면 임의 길이의 `varchar(n)`으로 제한하지 않고 `text`를 사용합니다.
 - **STD-DB-PG-016** 비정형 구조라는 이유만으로 `jsonb`를 사용하지 않으며 안정적인 조회, constraint와 관계가 필요한 값은 column과 table로 모델링합니다.
-- **STD-DB-PG-017** `jsonb`를 사용하면 저장 구조, runtime validation, 변경 호환성과 필요한 index를 Customs에 정의합니다.
+- **STD-DB-PG-017** `jsonb`를 사용하면 저장 구조, runtime validation, 변경 호환성과 필요한 index를 Requirement의 Database 설계에 정의합니다.
 - **STD-DB-PG-018** array type은 값의 독립적 identity, 관계와 자주 변경되는 요소가 필요하지 않은 경우에만 사용합니다.

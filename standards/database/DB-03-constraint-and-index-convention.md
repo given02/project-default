@@ -2,7 +2,7 @@
 
 ## Key와 Constraint
 
-- **STD-DB-030** 모든 table은 명시적인 primary key 또는 Customs에 정의된 대체 식별 전략을 가집니다.
+- **STD-DB-030** 모든 table은 명시적인 primary key 또는 Requirement의 Database 설계에 정의된 대체 식별 전략을 가집니다.
 - **STD-DB-031** business invariant는 가능한 경우 not-null, unique, foreign key와 check constraint로 Database에서도 보호합니다.
 - **STD-DB-032** 모든 foreign key의 delete 및 update 동작을 명시적으로 결정합니다.
 - **STD-DB-033** cascade는 데이터 소유권과 생명주기가 같은 경우에만 사용합니다.

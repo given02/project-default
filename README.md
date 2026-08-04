@@ -2,76 +2,68 @@
 
 ## 목적
 
-`project-default`는 신규 프로젝트를 일관된 방식으로 기획, 설계, 구현하고 검증하기 위한 개인 프로젝트 템플릿입니다.
+`project-default`는 신규 프로젝트를 일관된 방식으로 기획, 구현하고 검증하기 위한 개인 프로젝트 템플릿입니다.
 
-모든 프로젝트에서 유지할 개발 원칙과 기술별 구현 규칙을 기준선으로 제공하고, 프로젝트마다 달라지는 제품 요구사항과 설계 내용을 필요한 시점에 구체화할 수 있게 합니다. 사용자는 최소한의 Project Brief로 시작하고, Architect는 대화를 통해 현재 목표에 필요한 문서를 점진적으로 완성합니다. Agent는 저장소 문서를 source of truth로 사용하며, 이전 대화에 의존하지 않고 문서와 작업 지시를 기반으로 코드를 작성합니다.
+모든 프로젝트에서 유지할 코드 원칙과 기술별 구현 규칙을 Standards로 제공하고, 프로젝트별 작업은 요구사항 하나를 정의부터 테스트 완료까지 반복해 완성합니다. Agent는 저장소 문서를 source of truth로 사용하며 이전 대화에 의존하지 않습니다.
 
 ## 핵심 원칙
 
 - 문서는 프로젝트 의미와 결정의 source of truth입니다.
-- 코드는 문서화된 요구사항과 계약을 구현한 결과입니다.
-- 모든 개념은 하나의 소유자와 하나의 source of truth를 가집니다.
-- 모든 프로젝트에 적용되는 규칙과 프로젝트마다 달라지는 내용을 분리합니다.
+- 코드는 문서화된 요구사항을 구현한 결과입니다.
+- 하나의 요구사항 파일이 명세, 진행 상태, 구현 결과와 테스트 증거를 함께 소유합니다.
+- 요구사항은 독립적으로 구현하고 검증할 수 있는 사용자 결과 단위로 작성합니다.
 - Agent는 문서에 없는 제품 의미나 비즈니스 규칙을 코드에서 추측하지 않습니다.
 - 중요한 변경은 관련 문서, 코드와 테스트를 같은 작업에서 정렬합니다.
 
-## 문서 구조
+## 저장소 구조
 
 ```text
-standards/    공통 원칙과 기술별 구현 방식을 포함하는 개인 개발 표준
-customs/      프로젝트 기획, 설계와 구현을 위한 프로젝트별 실행 명세
-exceptions/   Standards를 벗어나 현재 적용하는 프로젝트별 예외
-tasks/        Customs를 구현 가능한 범위로 나눈 Agent 작업 지시
+standards/    모든 프로젝트에 적용할 개인 개발 표준
+customs/      요구사항별 명세, 구현과 검증 기록
+exceptions/   Standards를 벗어나는 프로젝트별 예외
 ```
 
 ### [Standards](standards/README.md)
 
-기술과 독립적인 공통 원칙과 Spring Boot, Spring Data JPA, React, TypeScript, PostgreSQL의 구체적인 구현 방식을 함께 정의합니다.
+기술과 독립적인 공통 원칙과 Spring Boot, Spring Data JPA, React, TypeScript, PostgreSQL의 구체적인 구현 방식을 정의합니다.
 
 개별 프로젝트에서는 `standards/`를 수정하지 않습니다. 변경은 `project-default`의 새 버전 배포를 통해서만 이루어집니다.
 
 ### [Customs](customs/README.md)
 
-Agent가 실제 제품 코드를 작성할 수 있도록 프로젝트별 내용을 정의합니다.
+프로젝트별 요구사항을 하나씩 관리합니다. 각 요구사항 파일에는 다음 내용을 순서대로 작성합니다.
 
-- 프로젝트 목적, 사용자와 해결할 문제
-- 기술 스택과 환경
-- 요구사항과 비즈니스 규칙
-- 사용자 여정, UI 흐름과 화면 명세
-- 디자인 시스템
-- 도메인 모델과 시스템 아키텍처
-- 데이터베이스 schema
-- 인증, API 요청·응답과 오류 계약
-- 테스트, 릴리스와 운영 기준
+```text
+요구사항
+→ 기능 명세
+→ 화면 설계
+→ Database 설계
+→ 테스트 계획
+→ 코드 작성
+→ 테스트 결과
+→ 완료
+```
 
-Customs는 적용할 기술 Standard를 선택하지만 Standard 자체를 재정의할 수 없습니다. 충돌이 필요하면 Exception을 작성합니다.
+화면이나 Database 변경이 없는 요구사항은 해당 구역에 적용하지 않는 이유를 기록하고 넘어갑니다. 구현이 끝난 뒤에도 요구사항 파일은 현재 기능의 명세와 검증 증거로 유지합니다.
 
 ### [Exceptions](exceptions/README.md)
 
-특정 프로젝트나 기능에서 Standard 규칙을 따를 수 없을 때 적용 범위, 이유, 대안, 대체 규칙, 위험과 검증 방법을 기록합니다.
+특정 요구사항이나 구현에서 Standard를 따를 수 없을 때 적용 범위, 이유, 대안, 대체 규칙, 위험과 검증 방법을 기록합니다.
 
-Exception은 원본 규칙을 수정하지 않으며 파일에 선언된 범위에서만 우선합니다.
-
-### [Tasks](tasks/README.md)
-
-Customs의 요구사항과 설계를 구현 가능한 작업 단위로 분할합니다.
-
-Task는 새로운 제품 의미를 정의하지 않고 관련 Standards, Customs와 Exceptions를 참조합니다. Agent는 Task의 범위, 완료 기준과 검증 방법에 따라 코드와 테스트를 작성합니다.
+Exception은 원본 Standard를 수정하지 않으며 파일에 선언된 범위에서만 우선합니다.
 
 ## 적용 순서
 
 ```text
 Standards
-→ Customs에서 선택한 기술 Standards
-→ 관련 Customs
+→ 현재 Requirement
 → 적용되는 Exceptions
-→ 현재 Task
 → 코드와 테스트
 ```
 
-Agent가 구현 중 누락, 모호함 또는 충돌을 발견하면 코드에서 의미를 추측하지 않습니다. 관련 Customs를 먼저 갱신하거나 필요한 Exception을 승인한 뒤 Task를 재개합니다.
+Agent가 구현 중 누락, 모호함 또는 충돌을 발견하면 코드에서 의미를 추측하지 않습니다. 현재 Requirement를 먼저 갱신하거나 필요한 Exception을 승인한 뒤 구현을 재개합니다.
 
-Agent 역할, 변경 권한과 역할별 사용법은 [AGENTS.md](AGENTS.md)를 따릅니다. Task 파일 형식과 상태 전이는 [Tasks](tasks/README.md)를 따릅니다.
+Agent 역할, 변경 권한, 상태 전이와 역할별 사용법은 [AGENTS.md](AGENTS.md)를 따릅니다. 요구사항 파일 형식과 완료 기준은 [Customs](customs/README.md)를 따릅니다.
 
 ## 신규 프로젝트 사용 방법
 
@@ -79,13 +71,13 @@ Agent 역할, 변경 권한과 역할별 사용법은 [AGENTS.md](AGENTS.md)를 
 2. clone 시점의 `.PROJECT_DEFAULT_VERSION`을 프로젝트 기준선으로 사용합니다.
 3. `origin`을 신규 프로젝트의 원격 저장소로 변경합니다.
 4. [Standards](standards/README.md)는 수정하지 않습니다.
-5. [Project Overview](customs/010-project-overview.md)에 프로젝트 이름, 한 줄 설명, 주요 사용자, 해결할 문제, 첫 번째 완성 목표와 초기 범위를 작성합니다.
-6. [Technology Stack](customs/050-technology-stack.md)의 기본값을 사용할지 확인하고 변경할 항목만 기록합니다.
-7. Architect와 대화하며 첫 번째 목표에 필요한 Customs만 구체화합니다.
-8. 관련 문서에 미정 사항이 없으면 [Tasks](tasks/README.md)의 기준에 따라 구현할 기능을 Task로 분할합니다.
-9. Agent가 Task와 관련 문서를 읽고 코드와 테스트를 작성합니다.
+5. 사용자가 첫 번째로 완성할 사용자 결과를 자유롭게 설명합니다.
+6. Architect가 `customs/REQ-001-<영문 이름>.md`를 만들고 요구사항부터 테스트 계획까지 사용자와 순서대로 확정합니다.
+7. Requirement가 Ready가 되면 Agent가 코드와 테스트를 작성합니다.
+8. 실행한 테스트와 실제 결과를 같은 Requirement에 기록하고 Review와 Done으로 전환합니다.
+9. 다음 요구사항을 새 파일로 만들고 같은 과정을 반복합니다.
 
-처음부터 모든 Customs를 채울 필요는 없습니다. 이후 기능을 진행할 때마다 해당 기능과 연결된 요구사항, 비즈니스 규칙, UX, 도메인, Database와 API 문서를 먼저 갱신하고 Task를 Ready로 전환합니다.
+프로젝트 전체 양식을 먼저 작성하지 않습니다. 현재 요구사항을 구현하고 검증하는 데 필요한 내용만 대화를 통해 구체화합니다.
 
 신규 프로젝트는 clone한 버전을 유지하며 이후 `project-default` 버전으로 자동 또는 수동 업그레이드하지 않습니다.
 
