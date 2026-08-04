@@ -2,99 +2,182 @@
 
 ## 목적
 
-이 문서는 새 프로젝트에서 사용할 외부 산출물의 원본 양식과 작성 규칙을 정의합니다.
+이 문서는 새 프로젝트에서 요구사항, 기능, 화면, Database와 테스트 산출물을 처음부터 만들 수 있도록 파일 구조와 필수 항목을 정의합니다. 별도의 외부 원본이나 예시 프로젝트를 참조하지 않습니다.
 
-원본 파일은 참고용이며 직접 수정하지 않습니다. 새 프로젝트를 시작할 때 Google Drive의 네이티브 파일 복사 기능으로 전체 원본을 한 번 복사한 뒤, 불필요한 예시 데이터와 시트를 사본에서 정리합니다. 다운로드 후 재업로드하는 방식으로 양식을 재구성하지 않습니다.
+산출물은 프로젝트별 새 Google Sheets와 Figma Design 파일로 생성합니다. 저장소 Requirement가 구현 source of truth이고 외부 산출물은 검토와 공유를 위해 같은 내용을 구조화한 결과입니다.
+
+## 공통 작성 규칙
+
+- 파일 제목은 `[프로젝트명] 산출물명` 형식을 사용합니다.
+- 첫 행은 column header로 사용하고 고정, 굵은 글씨, 배경색과 filter를 적용합니다.
+- 본문은 줄바꿈을 허용하고 위쪽 정렬을 사용합니다.
+- ID column은 문자열로 저장하고 완료된 ID를 다른 의미로 재사용하지 않습니다.
+- data 영역에는 병합 cell을 사용하지 않습니다.
+- 예시 값 대신 현재 프로젝트의 실제 결정만 기록합니다.
+- 변경 내용은 Requirement와 외부 산출물에 같은 작업에서 반영합니다.
 
 ## 요구사항 정의서와 기능 명세서
 
-- 원본: [시스템 개발 업무범위 및 구축기간](https://docs.google.com/spreadsheets/d/1n4C8ni987O8Tb0pyvQgq9bPmmPzGjAreq8v7eOKwdvI/edit)
-- 요구사항 정의서: 두 번째 시트 `요구사항 정의서` (`sheetId: 110155102`)
-- 기능 명세서: 세 번째 시트 `기능 명세서` (`sheetId: 0`)
+하나의 Google Sheets 파일에 다음 세 시트를 순서대로 만듭니다.
 
-새 프로젝트에서는 원본 통합 문서 전체를 복사한 뒤 다음 두 시트를 기본 산출물로 사용합니다. 개발 일정 시트는 사용자가 일정 관리도 요청한 경우에만 유지합니다.
+```text
+Overview
+요구사항 정의서
+기능 명세서
+```
 
-### 요구사항 정의서 구조
+### Overview
 
-| 구분 | 내용 | 비고 |
-| ---- | ---- | ---- |
+상단에는 다음 문서 정보를 기록합니다.
 
-- `구분`: 공통, 사용자, 관리자 등 요구사항 영역
-- `내용`: 검증 가능한 요구사항과 세부 조건
-- `비고`: 제약, 적용 시점과 추가 설명
+| 항목 | 내용 |
+| ---- | ---- |
+| 문서명 | `[프로젝트명] 요구사항 및 기능 명세서` |
+| 프로젝트 | 프로젝트 이름 |
+| 작성자 | 작성 주체 |
+| 작성일 | 최초 작성일 |
+| 최종 수정일 | 마지막 갱신일 |
 
-Requirement의 사용자, 문제, 범위와 acceptance criteria를 이 시트에 반영합니다.
+하단에는 다음 변경 이력 표를 둡니다.
 
-### 기능 명세서 구조
+| 버전 | 변경 내용 | 일자 | 비고 |
+| ---- | --------- | ---- | ---- |
 
-| Depth 1 | Depth 2 | Depth 3 | 개발 공수(MD) | 개발 레벨 | 개발 계획 | 비고 |
-| ------- | ------- | ------- | ------------- | --------- | --------- | ---- |
+### 요구사항 정의서
 
-- 기능을 사용자 영역과 메뉴 계층에 따라 Depth로 분해합니다.
+| Requirement ID | 구분 | 요구사항명 | 사용자와 문제 | 요구사항 내용 | 포함 범위 | 제외 범위 | Acceptance Criteria | 우선순위 | 상태 | 비고 |
+| -------------- | ---- | ---------- | ------------- | ----------- | --------- | --------- | ------------------- | -------- | ---- | ---- |
+
+- `구분`: 공통, 사용자, 관리자 또는 도메인 영역
+- `요구사항 내용`: 사용자가 얻어야 하는 결과와 세부 조건
+- `Acceptance Criteria`: Given, When, Then 또는 동등하게 검증 가능한 조건
+- `상태`: Draft, Ready, In Progress, Blocked, Review, Done 또는 Cancelled
+- 하나의 행은 하나의 Requirement ID를 소유합니다.
+
+### 기능 명세서
+
+| Function ID | Requirement ID | Depth 1 | Depth 2 | Depth 3 | 기능명 | 기능 설명 | 입력과 Validation | 처리와 Business Rule | 출력과 상태 변화 | 권한 | 오류 처리 | 개발 공수(MD) | 개발 레벨 | 개발 계획 | 비고 |
+| ----------- | -------------- | ------- | ------- | ------- | ------ | --------- | ----------------- | -------------------- | ---------------- | ---- | --------- | ------------- | --------- | --------- | ---- |
+
+- Depth는 사용자 영역, 메뉴와 세부 기능의 계층을 표현합니다.
+- 하나의 Requirement가 여러 기능으로 나뉘면 Function ID를 각각 부여합니다.
+- API와 외부 연동이 있으면 입력, 처리, 출력과 오류 column에 계약을 함께 기록합니다.
 - 개발 공수, 레벨과 계획은 사용자가 요청하거나 근거가 있을 때만 작성합니다.
-- 정상 흐름, Business Rule, 입력·출력, 권한, 오류와 계약은 기능 행의 비고 또는 연결된 상세 영역에 기록합니다.
 
 ## 화면 설계서
 
-화면 설계는 Google Slides 양식을 사용하지 않고 프로젝트별 Figma Design 파일에서 관리합니다.
+화면 설계는 프로젝트별 Figma Design 파일에서 관리합니다. 다음 page 구조를 기본으로 사용합니다.
 
-- `start`에서 사용자가 새 Figma Design 파일의 편집 링크를 입력합니다.
-- 화면, component, variant, interaction, loading, empty, error, disabled, success와 권한 상태를 Figma에 작성합니다.
-- Requirement에는 Figma file URL과 page 또는 node URL을 기록합니다.
-- Figma에 직접 접근할 수 없으면 화면 명세와 반영 지시를 Requirement에 작성하고 접근할 수 있는 것처럼 표현하지 않습니다.
+```text
+00_Cover        프로젝트와 문서 정보
+01_Foundations  color, typography, spacing, grid와 breakpoint
+02_Components   공통 component와 variant
+10_User         사용자 화면과 상태
+20_Admin        관리자 화면과 상태, 적용하지 않으면 생략
+90_Prototype    주요 사용자 flow와 interaction 연결
+```
+
+화면 frame에는 Requirement ID와 화면 이름을 함께 표시합니다. 각 화면은 다음 내용을 표현합니다.
+
+- route 또는 표시 위치와 접근 조건
+- 주요 component, data와 사용자 action
+- initial, loading, empty, error, disabled, success와 unauthorized 상태
+- desktop, tablet과 mobile 반응형 동작
+- keyboard, focus, accessible name과 오류 연결
+- 주요 interaction과 화면 전환
+
+Requirement에는 Figma file URL과 관련 page 또는 node URL을 기록합니다. 화면이 없는 프로젝트는 `해당 없음`과 이유를 기록합니다.
 
 ## DB 테이블 정의서
 
-- 원본: [Chemtopia DB Table Definition](https://docs.google.com/spreadsheets/d/1fRYFu9aKTvfsKTkWZNLIsthRQR7a7xTHTAPn5cREiMo/edit)
-
-전체 원본을 복사하고 다음 구조를 유지합니다.
+하나의 Google Sheets 파일에 다음 구조로 시트를 만듭니다.
 
 ```text
-00_Overview      문서 정보와 버전
-01_Table_List    table 이름과 설명 목록
+00_Overview      문서 정보와 변경 이력
+01_Table_List    전체 table 목록
 NN_<table_name>  table별 정책과 column 정의
 99_Indexes       unique와 index 통합 목록
 ```
 
-table별 시트는 다음 내용을 포함합니다.
+### 00_Overview
 
-- Table Name과 Description
-- Create, Update, Delete와 Read Policy
-- 컬럼명, 데이터 타입, PK, FK, Nullable, Default, Unique, Index, 설명과 비고
+문서명, 프로젝트, Database 종류와 version, 기본 schema, 작성자, 작성일과 최종 수정일을 기록합니다. 하단에는 버전, 변경 내용, 일자와 비고로 구성된 변경 이력 표를 둡니다.
 
-`99_Indexes`는 구분, 이름, 테이블, 컬럼 또는 조건과 설명을 기록합니다. 예시 프로젝트의 table 시트와 데이터는 사본에서 제거하고 현재 프로젝트 정의로 교체합니다.
+### 01_Table_List
+
+| No | 테이블명 | 테이블 설명 | 소유 도메인 | 관련 Requirement | 상태 | 비고 |
+| --- | -------- | ----------- | ----------- | ---------------- | ---- | ---- |
+
+### NN_&lt;table_name&gt;
+
+상단에는 다음 table 정보를 기록합니다.
+
+| 항목 | 내용 |
+| ---- | ---- |
+| Table Name | 실제 table 이름 |
+| Description | table의 제품 의미 |
+| Related Requirement | 관련 Requirement ID |
+| Create Policy | 생성 조건과 주체 |
+| Read Policy | 조회 조건과 권한 |
+| Update Policy | 수정 조건과 정합성 규칙 |
+| Delete Policy | hard delete, soft delete, archive 또는 삭제 불가 정책 |
+| Retention Policy | 보존과 복구 정책 |
+
+하단에는 다음 column 정의 표를 둡니다.
+
+| 컬럼명 | 데이터 타입 | PK | FK | Nullable | Default | Unique | Index | 설명 | 비고 |
+| ------ | ----------- | --- | --- | -------- | ------- | ------ | ----- | ---- | ---- |
+
+### 99_Indexes
+
+| 구분 | 이름 | 테이블 | 컬럼 또는 조건 | 관련 Requirement | 설명 |
+| ---- | ---- | ------ | --------------- | ---------------- | ---- |
+
+- `구분`은 UNIQUE 또는 INDEX를 사용합니다.
+- 여러 column으로 구성되면 순서를 포함해 쉼표로 구분합니다.
+- partial index라면 조건을 함께 기록합니다.
 
 ## 테스트 시나리오 및 결과서
 
-- 원본: [Chemtopia Test Scenario](https://docs.google.com/spreadsheets/d/1Bvnh69NtpjwwwXJtgkDgjcISyXZ4IqWW1aJbm5OzSlY/edit)
-
-전체 원본을 복사하고 다음 구조를 유지합니다.
+하나의 Google Sheets 파일에 다음 세 시트를 순서대로 만듭니다.
 
 ```text
-Overview                 문서 정보와 버전
-테스트 시나리오 목록     기능 계층, 시나리오 ID, 제목과 목적
-테스트 케이스 및 결과    사전 조건, 예상 결과, 실제 결과와 비고
+Overview
+테스트 시나리오 목록
+테스트 케이스 및 결과
 ```
 
-### 테스트 시나리오 목록 구조
+### Overview
 
-| Depth 1 | Depth 2 | Depth 3 | 시나리오 ID | 시나리오 제목 | 테스트 목적 |
-| ------- | ------- | ------- | ----------- | ------------- | ----------- |
+문서명, 프로젝트, 테스트 대상 version, 환경, 작성자, 작성일과 최종 수정일을 기록합니다. 하단에는 버전, 변경 내용, 일자와 비고로 구성된 변경 이력 표를 둡니다.
 
-### 테스트 케이스 및 결과 구조
+### 테스트 시나리오 목록
 
-| 구분 | 시나리오 ID | 시나리오 제목 | TC ID | TC 제목 | 사전 조건 | 예상 결과 | 결과(P/F) | 비고 |
-| ---- | ----------- | ------------- | ----- | ------- | --------- | --------- | --------- | ---- |
+| Requirement ID | Depth 1 | Depth 2 | Depth 3 | 시나리오 ID | 시나리오 제목 | 테스트 목적 | 우선순위 | 상태 |
+| -------------- | ------- | ------- | ------- | ----------- | ------------- | ----------- | -------- | ---- |
 
-- 테스트 계획 단계에서 시나리오, 케이스, 사전 조건과 예상 결과를 작성합니다.
-- 새 프로젝트 사본에는 `예상 결과` 뒤에 `실제 결과`, `증거`, `결함·재검증` column을 추가합니다.
-- 구현 후 실제 결과, 결과(P/F), 실행 증거, 결함과 재검증 내용을 기록합니다.
-- 원본의 완료 결과와 프로젝트 데이터는 사본에서 제거하고 새 프로젝트 결과로 교체합니다.
+- 시나리오 ID는 `TS-영역-3자리 번호` 형식을 사용합니다.
+- Requirement의 정상 흐름, 오류, 권한과 경계를 시나리오로 분리합니다.
 
-## 공통 규칙
+### 테스트 케이스 및 결과
 
-- 프로젝트 산출물 링크와 정확한 sheet, range, Figma page 또는 node는 `customs/PROJECT.md`와 관련 Requirement에 기록합니다.
-- 저장소 Requirement가 구현 source of truth이고 외부 산출물은 검토와 공유를 위한 동기화 결과입니다.
-- 산출물을 갱신할 때 원본 양식의 제목, column 순서, formatting, validation과 식별자 체계를 유지합니다.
-- 원본 양식에 현재 Requirement를 표현할 필드가 없으면 의미를 누락하지 말고 사본에 필요한 column 또는 상세 영역을 추가합니다.
-- 두 내용이 충돌하면 Requirement를 기준으로 원인을 확인하고 같은 작업에서 외부 산출물을 정렬합니다.
+| Requirement ID | 시나리오 ID | 시나리오 제목 | TC ID | TC 제목 | 사전 조건 | 실행 절차와 입력 | 예상 결과 | 실제 결과 | 결과(P/F) | 증거 | 결함·재검증 | 비고 |
+| -------------- | ----------- | ------------- | ----- | ------- | --------- | -------------- | --------- | --------- | --------- | ---- | ----------- | ---- |
+
+- TC ID는 `TC-영역-시나리오번호-케이스번호` 형식을 사용합니다.
+- 테스트 계획 단계에는 사전 조건, 실행 절차, 입력과 예상 결과까지 작성합니다.
+- 구현 후 실제 결과, P/F, log·screenshot·report 등의 증거와 결함·재검증 내용을 작성합니다.
+- 실행하지 못한 테스트는 비워두지 않고 이유와 영향을 기록합니다.
+
+## Requirement 단계별 반영 위치
+
+| Requirement 단계 | 산출물 | 반영 위치 |
+| ---------------- | ------ | --------- |
+| 요구사항 정의 | 요구사항 및 기능 명세 Google Sheets | `요구사항 정의서` |
+| 기능 명세 | 요구사항 및 기능 명세 Google Sheets | `기능 명세서` |
+| 화면 설계 | Figma Design | 관련 page와 node |
+| Database 설계 | DB 테이블 정의 Google Sheets | `01_Table_List`, table별 시트와 `99_Indexes` |
+| 테스트 계획 | 테스트 Google Sheets | 시나리오와 케이스 시트의 계획 column |
+| 테스트 결과 | 테스트 Google Sheets | 케이스 시트의 실제 결과, P/F, 증거와 재검증 column |
+
+외부 산출물에 현재 Requirement를 표현할 항목이 부족하면 의미를 생략하지 않고 필요한 column이나 상세 영역을 추가합니다. 저장소와 외부 산출물이 충돌하면 Requirement를 기준으로 원인을 확인하고 같은 작업에서 정렬합니다.
