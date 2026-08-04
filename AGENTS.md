@@ -10,10 +10,10 @@ Agent는 이전 대화가 아니라 저장소 문서를 프로젝트 맥락의 s
 
 사용자가 공백을 제외하고 `start`만 입력하면 대소문자와 관계없이 [Start Prompt](standards/workflow/start.md)를 읽고 그 절차를 실행합니다.
 
-- 첫 응답에서는 프로젝트 설명과 다섯 산출물에 대응하는 Google Sheets 및 Figma 링크를 요청합니다.
+- 첫 응답에서는 프로젝트 설명과 다섯 산출물에 대응하는 Microsoft Excel 편집 링크 및 Figma 링크를 요청합니다.
 - 답변을 받기 전에 프로젝트 파일, Requirement 또는 production 코드를 만들지 않습니다.
 - 사용자가 답변하면 `customs/PROJECT.md`에 프로젝트 설명과 산출물 링크를 기록합니다.
-- 요구사항 정의, 기능 명세와 테스트 시나리오 및 결과 Google Sheets는 각각 필수입니다.
+- 요구사항 정의, 기능 명세와 테스트 시나리오 및 결과 Microsoft Excel 통합 문서는 각각 필수입니다.
 - 화면 또는 Database가 없는 프로젝트는 해당 산출물에 `해당 없음`을 허용합니다.
 - 링크에 직접 접근할 수 없으면 접근 가능한 것처럼 행동하지 않고 반영할 내용을 사용자에게 제공합니다.
 
@@ -39,7 +39,7 @@ Frontend Developer
 
 - 문서가 프로젝트 의미와 결정의 source of truth입니다.
 - 하나의 Requirement 파일이 제품 명세와 구현 작업을 함께 소유합니다.
-- Google Sheets와 Figma는 검토와 공유를 위한 산출물이며 저장소 Requirement와 같은 작업에서 동기화합니다.
+- Microsoft Excel과 Figma는 검토와 공유를 위한 산출물이며 저장소 Requirement와 같은 작업에서 동기화합니다.
 - 코드는 Ready 상태로 전달된 Requirement를 구현한 결과입니다.
 - Agent는 현재 Requirement 범위를 벗어난 변경을 하지 않습니다.
 - 이전 대화나 다른 Agent의 기억을 필수 프로젝트 맥락으로 사용하지 않습니다.
@@ -115,7 +115,7 @@ Architect는 Product Manager, UX/UI 설계 책임자, Software Architect와 작�
 - 사용자의 설명에서 독립적으로 검증 가능한 사용자 결과를 식별합니다.
 - Requirement 파일을 만들고 요구사항, 기능 명세, 화면 설계와 Database 설계를 순서대로 작성합니다.
 - 구현 전에 테스트 항목, 기대 결과와 검증 방법을 정의합니다.
-- 요구사항 정의와 기능 명세는 각각의 Google Sheets, 화면 설계는 Figma, Database 설계는 DB 테이블 정의 Google Sheets, 테스트 계획은 테스트 시나리오 및 결과 Google Sheets에 반영합니다.
+- 요구사항 정의와 기능 명세는 각각의 Microsoft Excel 통합 문서, 화면 설계는 Figma, Database 설계는 DB 테이블 정의 Microsoft Excel 통합 문서, 테스트 계획은 테스트 시나리오 및 결과 Microsoft Excel 통합 문서에 반영합니다.
 - 외부 산출물의 링크와 반영 위치를 Requirement에 기록합니다.
 - 기술 선택, 비즈니스 규칙, API, 인증, 데이터와 운영 제약을 현재 Requirement에 필요한 수준으로 확정합니다.
 - Requirement가 Ready 기준을 충족하는지 검토합니다.
@@ -153,7 +153,7 @@ Backend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Back
 - 공통, Backend와 선택된 Database 기술 Standards를 적용합니다.
 - Backend 코드, migration과 테스트를 구현합니다.
 - Requirement에 변경 파일, 구현 요약, 검증 명령과 실제 결과를 기록합니다.
-- 접근할 수 있다면 실제 테스트 결과를 Google Sheets 테스트 시나리오 및 결과서에도 반영합니다.
+- 접근할 수 있다면 실제 테스트 결과를 Microsoft Excel 테스트 시나리오 및 결과서에도 반영합니다.
 - 공유 계약의 누락, 모호함과 충돌을 Architect에게 에스컬레이션합니다.
 
 ### 금지
@@ -187,7 +187,7 @@ Frontend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Fro
 - 공통, Frontend와 선택된 기술 Standards를 적용합니다.
 - Frontend 코드, 접근성 동작과 테스트를 구현합니다.
 - Requirement에 변경 파일, 구현 요약, 검증 명령과 실제 결과를 기록합니다.
-- 접근할 수 있다면 실제 테스트 결과를 Google Sheets 테스트 시나리오 및 결과서에도 반영합니다.
+- 접근할 수 있다면 실제 테스트 결과를 Microsoft Excel 테스트 시나리오 및 결과서에도 반영합니다.
 - 공유 계약의 누락, 모호함과 충돌을 Architect에게 에스컬레이션합니다.
 
 ### 금지
@@ -226,10 +226,10 @@ Blocked 구역에는 구체적인 사유, 필요한 결정, 영향 범위와 이
 ## 반복 운영
 
 1. Architect가 다음 사용자 결과를 하나의 Requirement로 생성합니다.
-2. 요구사항, 기능 명세, 화면 설계, Database 설계와 테스트 계획을 순서대로 확정하고 대응하는 Google Sheets와 Figma 산출물을 함께 갱신합니다.
+2. 요구사항, 기능 명세, 화면 설계, Database 설계와 테스트 계획을 순서대로 확정하고 대응하는 Microsoft Excel과 Figma 산출물을 함께 갱신합니다.
 3. Ready 기준을 확인하고 구현 역할을 지정합니다.
 4. Developer가 In Progress로 전환하고 코드와 테스트를 작성합니다.
-5. Developer가 실제 테스트 결과를 Requirement와 Google Sheets 테스트 결과서에 기록하고 Review로 전환합니다.
+5. Developer가 실제 테스트 결과를 Requirement와 Microsoft Excel 테스트 결과서에 기록하고 Review로 전환합니다.
 6. Architect가 명세, 코드와 결과를 통합 검토해 Done으로 승인합니다.
 7. 다음 Requirement에서 같은 과정을 반복합니다.
 

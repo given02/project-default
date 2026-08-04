@@ -6,7 +6,7 @@
 
 요구사항마다 파일 하나를 만들고 요구사항 정의, 기능 명세, 화면 설계, Database 설계, 테스트 계획, 구현 결과와 테스트 결과를 같은 파일에 순서대로 기록합니다. 별도의 Task 문서는 만들지 않습니다.
 
-`start` 초기화가 완료되면 `PROJECT.md`에 프로젝트 설명과 Google Sheets·Figma 산출물 링크를 기록합니다. Requirement는 구현의 source of truth이고 외부 문서는 검토와 공유를 위한 동기화 산출물입니다.
+`start` 초기화가 완료되면 `PROJECT.md`에 프로젝트 설명과 Microsoft Excel·Figma 산출물 링크를 기록합니다. Requirement는 구현의 source of truth이고 외부 문서는 검토와 공유를 위한 동기화 산출물입니다.
 
 외부 산출물을 생성하고 작성할 때는 [Artifact Templates](../standards/workflow/artifacts.md)에 자체적으로 정의된 구조를 따릅니다.
 
@@ -25,11 +25,11 @@
 
 | 산출물 | 형식과 위치 | 링크 | 적용 여부 |
 | ------ | ----------- | ---- | --------- |
-| 요구사항 정의서 | 별도 Google Sheets `요구사항 정의서` 시트 | 편집 링크 | 적용 |
-| 기능 명세서 | 별도 Google Sheets `기능 명세서` 시트 | 편집 링크 | 적용 |
+| 요구사항 정의서 | 별도 Microsoft Excel 통합 문서의 `요구사항 정의서` worksheet | 편집 링크 | 적용 |
+| 기능 명세서 | 별도 Microsoft Excel 통합 문서의 `기능 명세서` worksheet | 편집 링크 | 적용 |
 | 화면 설계서 | Figma Design | 편집 링크 또는 해당 없음 | 적용 / 해당 없음 |
-| DB 테이블 정의서 | Google Sheets | 편집 링크 또는 해당 없음 | 적용 / 해당 없음 |
-| 테스트 시나리오 및 결과서 | Google Sheets | 편집 링크 | 적용 |
+| DB 테이블 정의서 | Microsoft Excel 통합 문서 | 편집 링크 또는 해당 없음 | 적용 / 해당 없음 |
+| 테스트 시나리오 및 결과서 | Microsoft Excel 통합 문서 | 편집 링크 | 적용 |
 ```
 
 - 요구사항 정의서, 기능 명세서와 테스트 시나리오 및 결과서는 필수입니다.
@@ -247,7 +247,7 @@ Architect, Backend Developer, Frontend Developer 중 필요한 역할
 | 테스트 계획 | 테스트 시나리오 및 결과서 | test ID, 사전 조건, 입력·절차와 기대 결과 |
 | 테스트 결과 | 테스트 시나리오 및 결과서 | 실제 결과, 성공 여부, 증거, 결함과 재검증 결과 |
 
-- 저장소 Requirement를 먼저 갱신하고 같은 작업에서 Google Sheets 또는 Figma 산출물을 동기화합니다.
+- 저장소 Requirement를 먼저 갱신하고 같은 작업에서 Microsoft Excel 또는 Figma 산출물을 동기화합니다.
 - Requirement의 `산출물 반영 위치`에 실제 sheet, range, Figma page·node 또는 test ID를 기록합니다.
 - 두 내용이 충돌하면 Requirement를 기준으로 원인을 확인하고 외부 산출물을 정렬합니다.
 - 문서 접근 도구나 권한이 없으면 반영하지 못한 이유와 반영할 정확한 내용을 Requirement에 기록하고 사용자에게 전달합니다.
@@ -263,7 +263,7 @@ Architect, Backend Developer, Frontend Developer 중 필요한 역할
 - 테스트 항목, 기대 결과와 실행할 검증 방법이 구현 전에 작성되어 있습니다.
 - 선행 Requirement가 Done 상태입니다.
 - 적용되는 Exception이 Requirement에 연결되어 있습니다.
-- Google Sheets와 Figma 산출물에 관련 명세와 테스트 계획이 반영되었거나, 접근할 수 없는 이유와 반영할 내용이 기록되어 있습니다.
+- Microsoft Excel과 Figma 산출물에 관련 명세와 테스트 계획이 반영되었거나, 접근할 수 없는 이유와 반영할 내용이 기록되어 있습니다.
 - 구현 범위에 placeholder, 모호함 또는 문서 충돌이 없습니다.
 
 ## Review와 Done 기준
@@ -273,7 +273,7 @@ Review로 전환하기 전에 다음을 확인합니다.
 - 코드와 테스트가 Requirement 범위와 acceptance criteria를 충족합니다.
 - 필요한 migration과 생성 파일이 함께 작성되었습니다.
 - 계획한 테스트의 실제 결과와 증거가 기록되었습니다.
-- Google Sheets 테스트 시나리오 및 결과서에 실제 결과가 반영되었거나, 접근할 수 없는 이유와 반영할 내용이 기록되었습니다.
+- Microsoft Excel 테스트 시나리오 및 결과서에 실제 결과가 반영되었거나, 접근할 수 없는 이유와 반영할 내용이 기록되었습니다.
 - 실행하지 못한 검증과 이유가 기록되었습니다.
 - 발견한 누락과 충돌이 해결되었거나 Blocked로 전환되었습니다.
 - 구현 요약과 변경 파일이 기록되었습니다.
