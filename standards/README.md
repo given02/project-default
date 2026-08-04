@@ -18,6 +18,7 @@ Standard 자체의 변경은 `project-default`에서 Template Maintainer가 수�
 
 ```text
 standards/
+├── workflow/                    프로젝트 시작과 산출물 운영 절차
 ├── common/                      기술 독립적인 아키텍처, 코드 품질, 테스트와 보안
 ├── backend/
 │   ├── 공통 Backend 규칙
@@ -32,6 +33,8 @@ standards/
 ```
 
 기술별 규칙도 모든 프로젝트에 배포되는 고정 Standard입니다. 실제 프로젝트에는 사용 중인 기술 경로의 Standard만 적용합니다.
+
+`workflow/`는 모든 프로젝트에 배포되는 운영 Standard입니다. 프로젝트별 값을 포함하지 않고 시작 질문, 산출물 생성과 동기화 절차를 정의합니다.
 
 ## 표준의 효력
 
@@ -110,10 +113,11 @@ Template Maintainer는 Standard를 작성하거나 변경할 때 다음을 준�
 ## 읽기 순서
 
 1. `README.md`
-2. `common/`
-3. 현재 역할의 `backend/` 또는 `frontend/`
-4. 프로젝트에서 사용하는 Backend 또는 Frontend 기술 Standard
-5. 데이터 저장을 사용하는 경우 `database/`
-6. 프로젝트에서 사용하는 Database 기술 Standard
+2. 프로젝트를 시작하거나 산출물을 갱신할 때 `workflow/`
+3. `common/`
+4. 현재 역할의 `backend/` 또는 `frontend/`
+5. 프로젝트에서 사용하는 Backend 또는 Frontend 기술 Standard
+6. 데이터 저장을 사용하는 경우 `database/`
+7. 프로젝트에서 사용하는 Database 기술 Standard
 
 작업과 관계없는 모든 Standard를 매번 읽을 필요는 없지만 현재 역할과 선택된 기술에 적용되는 규칙은 작업 전에 확인합니다.

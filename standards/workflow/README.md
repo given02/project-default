@@ -2,7 +2,7 @@
 
 ## 목적
 
-`workflow/`는 모든 프로젝트에서 공통으로 사용할 시작 절차와 산출물 운영 방식을 정의합니다.
+`standards/workflow/`는 모든 프로젝트에서 공통으로 사용할 시작 절차와 산출물 운영 방식을 정의합니다.
 
 ```text
 start
@@ -18,8 +18,8 @@ start
 
 | 영역 | 소유하는 내용 |
 | ---- | ------------- |
-| `workflow/` | 프로젝트 시작, 질문, 산출물 생성과 동기화 절차 |
-| `standards/` | 코드, 아키텍처, 테스트와 기술별 구현 규칙 |
+| `standards/workflow/` | 프로젝트 시작, 질문, 산출물 생성과 동기화 절차 |
+| `standards/common/`, `backend/`, `frontend/`, `database/` | 코드, 아키텍처, 테스트와 기술별 구현 규칙 |
 | `customs/` | 현재 프로젝트의 요구사항, 설계, 상태, 구현과 검증 결과 |
 | `exceptions/` | Standards를 벗어나는 현재 적용 예외 |
 
@@ -32,7 +32,7 @@ Workflow는 프로젝트별 값이나 제품 의미를 소유하지 않습니다
 
 ## 변경 권한
 
-clone으로 생성한 실제 프로젝트에서는 `workflow/`를 읽기 전용으로 사용합니다. 공통 Workflow 변경은 `project-default`에서 새 버전으로 배포합니다.
+clone으로 생성한 실제 프로젝트에서는 `standards/workflow/`를 읽기 전용으로 사용합니다. 공통 Workflow 변경은 `project-default`에서 새 버전으로 배포합니다.
 
 프로젝트별로 산출물이 적용되지 않으면 Workflow를 수정하지 않고 `customs/PROJECT.md`와 관련 Requirement에 `해당 없음`, 이유와 재검토 조건을 기록합니다.
 

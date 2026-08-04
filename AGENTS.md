@@ -8,7 +8,7 @@ Agent는 이전 대화가 아니라 저장소 문서를 프로젝트 맥락의 s
 
 ## `start` 명령
 
-사용자가 공백을 제외하고 `start`만 입력하면 대소문자와 관계없이 [Start Prompt](workflow/start.md)를 읽고 그 절차를 실행합니다.
+사용자가 공백을 제외하고 `start`만 입력하면 대소문자와 관계없이 [Start Prompt](standards/workflow/start.md)를 읽고 그 절차를 실행합니다.
 
 - 첫 응답에서는 프로젝트 설명과 다섯 산출물에 대응하는 Google Sheets 및 Figma 링크를 요청합니다.
 - 답변을 받기 전에 프로젝트 파일, Requirement 또는 production 코드를 만들지 않습니다.
@@ -50,7 +50,7 @@ Frontend Developer
 
 | 영역                                  | Source Of Truth                     | Architect               | Backend Developer                         | Frontend Developer                        |
 | ------------------------------------- | ----------------------------------- | ----------------------- | ----------------------------------------- | ----------------------------------------- |
-| [`workflow/`](workflow/README.md)      | 시작과 산출물 운영 절차             | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
+| [`standards/workflow/`](standards/workflow/README.md) | 시작과 산출물 운영 절차  | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
 | [`standards/`](standards/README.md)   | 공통 원칙과 기술별 구현 표준        | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
 | [`customs/`](customs/README.md)       | 요구사항, 설계, 상태와 검증 증거    | 생성, 명세, 검토와 승인 | 상태, Blocked, Backend 구현과 테스트 기록 | 상태, Blocked, Frontend 구현과 테스트 기록 |
 | [`exceptions/`](exceptions/README.md) | 고정 규칙의 프로젝트별 예외         | 작성 및 변경            | 읽기 전용                                 | 읽기 전용                                 |
@@ -61,9 +61,9 @@ Developer는 Customs에서 상태, Blocked, 자신이 담당한 구현 결과와
 
 ### project-default 예외
 
-`project-default` 저장소에서 사용자가 명시적으로 템플릿 Workflow 또는 Standard 변경을 요청한 경우에만 Architect가 Template Maintainer로서 `workflow/` 또는 `standards/`를 변경할 수 있습니다.
+`project-default` 저장소에서 사용자가 명시적으로 템플릿 Workflow 또는 Standard 변경을 요청한 경우에만 Architect가 Template Maintainer로서 `standards/`를 변경할 수 있습니다.
 
-clone으로 생성한 실제 프로젝트에서는 어떤 역할도 `workflow/`와 `standards/`를 직접 변경할 수 없습니다. 프로젝트별 값과 적용 여부는 Customs에 기록하고 Standard를 벗어나야 하면 Exception을 작성합니다.
+clone으로 생성한 실제 프로젝트에서는 어떤 역할도 `standards/`를 직접 변경할 수 없습니다. 프로젝트별 값과 적용 여부는 Customs에 기록하고 Standard를 벗어나야 하면 Exception을 작성합니다.
 
 ## 규칙 적용 순서
 
@@ -135,10 +135,10 @@ Architect는 Product Manager, UX/UI 설계 책임자, Software Architect와 작�
 
 1. [README.md](README.md)
 2. [AGENTS.md](AGENTS.md)
-3. [Workflow](workflow/README.md)
+3. [Workflow](standards/workflow/README.md)
 4. [Standards](standards/README.md)
 5. [Customs](customs/README.md)
-6. [Artifact Templates](workflow/artifacts.md)
+6. [Artifact Templates](standards/workflow/artifacts.md)
 7. [Exceptions](exceptions/README.md)
 8. 현재 Requirement와 참조된 선행 Requirement
 9. 현재 Requirement에 적용되는 Standards와 Exceptions
@@ -170,7 +170,7 @@ Backend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Back
 2. [AGENTS.md](AGENTS.md)
 3. 현재 Requirement
 4. 참조된 선행 Requirement
-5. [Artifact Templates](workflow/artifacts.md)
+5. [Artifact Templates](standards/workflow/artifacts.md)
 6. [Common Standards](standards/common/README.md)
 7. [Backend Standards](standards/backend/README.md)
 8. [Database Standards](standards/database/README.md)
@@ -204,7 +204,7 @@ Frontend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Fro
 2. [AGENTS.md](AGENTS.md)
 3. 현재 Requirement
 4. 참조된 선행 Requirement
-5. [Artifact Templates](workflow/artifacts.md)
+5. [Artifact Templates](standards/workflow/artifacts.md)
 6. [Common Standards](standards/common/README.md)
 7. [Frontend Standards](standards/frontend/README.md)
 8. 적용되는 기술 Standards와 Exceptions
