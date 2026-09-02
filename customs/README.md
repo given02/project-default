@@ -8,7 +8,7 @@
 
 `start` 초기화가 완료되면 `PROJECT.md`에 프로젝트 설명과 Microsoft Excel·Figma 산출물 링크를 기록합니다. Requirement는 구현의 source of truth이고 외부 문서는 검토와 공유를 위한 동기화 산출물입니다.
 
-외부 산출물을 생성하고 작성할 때는 [Artifact Templates](../standards/workflow/artifacts.md)에 자체적으로 정의된 구조를 따릅니다.
+외부 산출물에 접근할 때는 [External Document Access](../standards/workflow/document-access.md)를 따르고, 생성하고 작성할 때는 [Artifact Templates](../standards/workflow/artifacts.md)에 자체적으로 정의된 구조를 따릅니다.
 
 ## 프로젝트 정보 파일
 
@@ -30,11 +30,19 @@
 | 화면 설계서 | Figma Design | 편집 링크 또는 해당 없음 | 적용 / 해당 없음 |
 | DB 테이블 정의서 | Microsoft Excel 통합 문서 | 편집 링크 또는 해당 없음 | 적용 / 해당 없음 |
 | 테스트 시나리오 및 결과서 | Microsoft Excel 통합 문서 | 편집 링크 | 적용 |
+
+## 외부 문서 접근
+
+| 서비스 | 기본 접근 수단 | 연결 상태 | 마지막 확인 결과 |
+| ------ | -------------- | --------- | ---------------- |
+| OneDrive / SharePoint | SharePoint 앱 | 연결 확인 / 쓰기 확인 / 연결 필요 / 권한 필요 / 대체 파일 사용 | 확인일과 읽기·쓰기 가능 여부 |
+| Figma | Figma 앱 | 연결 확인 / 쓰기 확인 / 연결 필요 / 권한 필요 | 확인일과 읽기·쓰기 가능 여부 |
 ```
 
 - 요구사항 정의서, 기능 명세서와 테스트 시나리오 및 결과서는 필수입니다.
 - 화면이나 Database가 없는 프로젝트는 해당 산출물을 `해당 없음`으로 기록합니다.
 - 링크가 바뀌면 `PROJECT.md`를 즉시 갱신합니다.
+- 대화가 바뀌면 연결 상태를 그대로 신뢰하지 않고 원본 접근 시 다시 확인합니다.
 - credential, access token과 비공개 공유 암호를 링크 옆에 기록하지 않습니다.
 
 ## 파일 이름과 Requirement ID
@@ -248,9 +256,10 @@ Architect, Backend Developer, Frontend Developer 중 필요한 역할
 | 테스트 결과 | 테스트 시나리오 및 결과서 | 실제 결과, 성공 여부, 증거, 결함과 재검증 결과 |
 
 - 저장소 Requirement를 먼저 갱신하고 같은 작업에서 Microsoft Excel 또는 Figma 산출물을 동기화합니다.
+- Microsoft Excel은 SharePoint 앱으로 원본을 찾고 접근하며, 필요한 정밀 편집에는 지원되는 Excel 또는 Spreadsheet 도구를 함께 사용합니다.
 - Requirement의 `산출물 반영 위치`에 실제 sheet, range, Figma page·node 또는 test ID를 기록합니다.
 - 두 내용이 충돌하면 Requirement를 기준으로 원인을 확인하고 외부 산출물을 정렬합니다.
-- 문서 접근 도구나 권한이 없으면 반영하지 못한 이유와 반영할 정확한 내용을 Requirement에 기록하고 사용자에게 전달합니다.
+- SharePoint 또는 Figma 앱이 연결되지 않았으면 먼저 앱 연결을 요청합니다. 앱 연결 후에도 문서 접근 action이나 권한이 없으면 반영하지 못한 이유와 반영할 정확한 내용을 Requirement에 기록하고 사용자에게 전달합니다.
 - 외부 문서 갱신 여부를 확인하지 못했으면 완료했다고 기록하지 않습니다.
 
 ## Ready 기준

@@ -34,6 +34,7 @@ exceptions/   Standards를 벗어나는 프로젝트별 예외
 프로젝트를 시작할 때의 질문과 외부 산출물을 생성·갱신하는 반복 절차를 정의합니다.
 
 - 프로젝트 초기 질문: [Start Prompt](standards/workflow/start.md)
+- SharePoint와 Figma 원본 접근 절차: [External Document Access](standards/workflow/document-access.md)
 - Microsoft Excel과 Figma 산출물 규격: [Artifact Templates](standards/workflow/artifacts.md)
 
 Workflow는 제품 의미를 소유하지 않으며 실제 프로젝트 값과 링크는 Customs에 기록합니다.
@@ -81,12 +82,14 @@ Agent 역할, 변경 권한, 상태 전이와 역할별 사용법은 [AGENTS.md]
 3. `origin`을 신규 프로젝트의 원격 저장소로 변경합니다.
 4. [Standards](standards/README.md)는 수정하지 않습니다.
 5. Agent에게 `start`를 입력합니다.
-6. [Start Prompt](standards/workflow/start.md)의 질문에 프로젝트 설명, 요구사항·기능·DB·테스트 Microsoft Excel 편집 링크와 Figma 링크를 각각 답변합니다.
-7. Architect가 `customs/PROJECT.md`와 `customs/REQ-001-<영문 이름>.md`를 만들고 요구사항부터 테스트 계획까지 사용자와 순서대로 확정합니다.
-8. [Artifact Templates](standards/workflow/artifacts.md)를 기준으로 요구사항 정의서, 기능 명세서, Figma 화면 설계, DB 테이블 정의서와 테스트 시나리오 문서를 함께 갱신합니다.
-9. Requirement가 Ready가 되면 Agent가 코드와 테스트를 작성합니다.
-10. 실행한 테스트와 실제 결과를 Requirement와 테스트 결과서에 기록하고 Review와 Done으로 전환합니다.
-11. 다음 요구사항을 새 파일로 만들고 같은 과정을 반복합니다.
+6. Codex에서 SharePoint 앱을 Microsoft 계정에 연결하고 화면 설계가 필요하면 Figma 앱도 연결합니다.
+7. [Start Prompt](standards/workflow/start.md)의 질문에 프로젝트 설명, 요구사항·기능·DB·테스트 Microsoft Excel 편집 링크와 Figma 링크를 각각 답변합니다.
+8. Agent가 [External Document Access](standards/workflow/document-access.md)에 따라 SharePoint와 Figma 원본 접근 및 권한을 확인합니다.
+9. Architect가 `customs/PROJECT.md`와 `customs/REQ-001-<영문 이름>.md`를 만들고 요구사항부터 테스트 계획까지 사용자와 순서대로 확정합니다.
+10. [Artifact Templates](standards/workflow/artifacts.md)를 기준으로 요구사항 정의서, 기능 명세서, Figma 화면 설계, DB 테이블 정의서와 테스트 시나리오 문서를 함께 갱신합니다.
+11. Requirement가 Ready가 되면 Agent가 코드와 테스트를 작성합니다.
+12. 실행한 테스트와 실제 결과를 Requirement와 테스트 결과서에 기록하고 Review와 Done으로 전환합니다.
+13. 다음 요구사항을 새 파일로 만들고 같은 과정을 반복합니다.
 
 프로젝트 전체 양식을 먼저 작성하지 않습니다. 현재 요구사항을 구현하고 검증하는 데 필요한 내용만 대화를 통해 구체화합니다.
 

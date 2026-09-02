@@ -4,7 +4,7 @@
 
 이 문서는 새 프로젝트에서 요구사항, 기능, 화면, Database와 테스트 산출물을 처음부터 만들 수 있도록 파일 구조와 필수 항목을 정의합니다. 별도의 외부 원본이나 예시 프로젝트를 참조하지 않습니다.
 
-산출물은 프로젝트별 새 Microsoft Excel 통합 문서와 Figma Design 파일로 생성합니다. Excel 통합 문서는 OneDrive 또는 SharePoint에 저장하고 현재 작업 환경에서 접근 가능한 편집 링크를 사용합니다. 저장소 Requirement가 구현 source of truth이고 외부 산출물은 검토와 공유를 위해 같은 내용을 구조화한 결과입니다.
+산출물은 프로젝트별 새 Microsoft Excel 통합 문서와 Figma Design 파일로 생성합니다. Excel 통합 문서는 OneDrive 또는 SharePoint에 저장하고 현재 작업 환경에서 접근 가능한 편집 링크를 사용합니다. 원본 문서 접근과 갱신은 [External Document Access](document-access.md)를 따릅니다. 저장소 Requirement가 구현 source of truth이고 외부 산출물은 검토와 공유를 위해 같은 내용을 구조화한 결과입니다.
 
 ## 공통 작성 규칙
 
