@@ -57,6 +57,7 @@ Frontend Developer
 | [`standards/`](standards/README.md)   | 공통 원칙과 기술별 구현 표준        | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
 | [`customs/`](customs/README.md)       | 요구사항, 설계, 상태와 검증 증거    | 생성, 명세, 검토와 승인 | 상태, Blocked, Backend 구현과 테스트 기록 | 상태, Blocked, Frontend 구현과 테스트 기록 |
 | [`exceptions/`](exceptions/README.md) | 고정 규칙의 프로젝트별 예외         | 작성 및 변경            | 읽기 전용                                 | 읽기 전용                                 |
+| [`updates/`](updates/README.md)       | 버전별 템플릿 마이그레이션 절차     | 읽기 전용               | 읽기 전용                                 | 읽기 전용                                 |
 | Backend 코드                          | Backend 구현                        | 통합 검토               | 작성 및 변경                              | 읽기 전용                                 |
 | Frontend 코드                         | Frontend 구현                       | 통합 검토               | 읽기 전용                                 | 작성 및 변경                              |
 
@@ -66,7 +67,11 @@ Developer는 Customs에서 상태, Blocked, 자신이 담당한 구현 결과와
 
 `project-default` 저장소에서 사용자가 명시적으로 템플릿 Workflow 또는 Standard 변경을 요청한 경우에만 Architect가 Template Maintainer로서 `standards/`를 변경할 수 있습니다.
 
+Template Maintainer가 `.PROJECT_DEFAULT_VERSION`을 변경하면 MAJOR, MINOR와 PATCH 구분 없이 같은 작업에서 [버전별 update 문서](updates/README.md)를 작성하고 index에 등록해야 합니다. 대응하는 `updates/<대상 버전>.md`가 없거나 변경을 재현할 수 있는 self-contained 프롬프트가 아니면 버전 변경과 배포를 완료하지 않습니다.
+
 clone으로 생성한 실제 프로젝트에서는 어떤 역할도 `standards/`를 직접 변경할 수 없습니다. 프로젝트별 값과 적용 여부는 Customs에 기록하고 Standard를 벗어나야 하면 Exception을 작성합니다.
+
+단, 사용자가 현재 버전에 맞는 [공식 update 프롬프트](updates/README.md)를 직접 입력한 경우에는 해당 프롬프트가 선언한 범위와 한 번의 실행에 한해 Template Upgrade Maintainer가 템플릿 관리 파일을 변경할 수 있습니다. 현재 버전 불일치, 변경 범위 충돌 또는 검증 실패가 있으면 업그레이드를 완료하지 않고 사용자에게 에스컬레이션합니다.
 
 ## 규칙 적용 순서
 

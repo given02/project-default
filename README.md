@@ -21,6 +21,7 @@
 standards/    프로젝트 운영, 코드와 기술별 구현에 적용할 개인 표준
 customs/      요구사항별 명세, 구현과 검증 기록
 exceptions/   Standards를 벗어나는 프로젝트별 예외
+updates/      기존 프로젝트용 버전별 업데이트 프롬프트
 ```
 
 ### [Standards](standards/README.md)
@@ -62,6 +63,12 @@ Workflow는 제품 의미를 소유하지 않으며 실제 프로젝트 값과 �
 
 Exception은 원본 Standard를 수정하지 않으며 파일에 선언된 범위에서만 우선합니다.
 
+### [Updates](updates/README.md)
+
+기존 프로젝트가 사용자의 명시적 승인 아래 새 `project-default` 기준을 순차적으로 적용할 수 있도록 버전별 self-contained 프롬프트를 제공합니다.
+
+Updates는 과거 Standard archive가 아니라 버전 사이의 마이그레이션 절차입니다. 프로젝트별 Customs, Exceptions와 구현을 보호하면서 템플릿 관리 파일만 갱신합니다.
+
 ## 적용 순서
 
 ```text
@@ -95,7 +102,7 @@ Agent 역할, 변경 권한, 상태 전이와 역할별 사용법은 [AGENTS.md]
 
 Microsoft Excel과 Figma는 검토와 공유를 위한 산출물입니다. 구현 기준은 저장소의 Requirement이며, 두 내용이 다르면 Requirement를 기준으로 원인을 확인하고 같은 작업에서 동기화합니다.
 
-신규 프로젝트는 clone한 버전을 유지하며 이후 `project-default` 버전으로 자동 또는 수동 업그레이드하지 않습니다.
+신규 프로젝트는 clone한 버전을 기준선으로 유지하며 자동으로 업그레이드하지 않습니다. 사용자가 [공식 update 프롬프트](updates/README.md)를 입력해 명시적으로 승인한 경우에만 중간 버전을 건너뛰지 않고 순차적으로 업그레이드합니다.
 
 ## 버전과 배포
 
@@ -109,9 +116,11 @@ MAJOR.MINOR.PATCH
 - MINOR: 호환 가능한 Standard 또는 템플릿 추가
 - PATCH: 의미를 바꾸지 않는 설명, 오탈자와 링크 수정
 
+MAJOR, MINOR와 PATCH를 포함한 모든 새 버전은 같은 변경 작업에서 [버전별 update 문서](updates/README.md)를 작성해야 합니다. 대응하는 `updates/<대상 버전>.md`가 없으면 해당 버전은 배포할 수 없습니다.
+
 `main` branch는 항상 신규 프로젝트에서 사용할 수 있는 최신 안정 상태를 유지합니다. 정식 버전은 Git tag와 GitHub Release로 배포합니다.
 
-- 저장소 내부에 이전 버전 문서의 archive 디렉터리를 만들지 않습니다.
+- 저장소 내부에 이전 버전 Standard 사본을 보관하는 archive 디렉터리를 만들지 않습니다. `updates/`에는 전체 사본이 아니라 버전 간 마이그레이션 프롬프트만 보관합니다.
 - Git tag와 GitHub Release를 공식 버전 아카이브로 사용합니다.
 - 버전별 변경 내역은 해당 GitHub Release에 작성합니다.
-- 신규 프로젝트는 clone한 시점의 버전을 영구 기준선으로 유지합니다.
+- 신규 프로젝트는 clone한 시점의 버전을 최초 기준선으로 사용하며, 공식 update 프롬프트를 적용하면 완료된 대상 버전을 새 기준선으로 사용합니다.

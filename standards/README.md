@@ -109,6 +109,8 @@ Template Maintainer는 Standard를 작성하거나 변경할 때 다음을 준�
 - framework, ORM과 database vendor의 API는 해당 기술 디렉터리에서만 정의합니다.
 - 예외가 불가능한 이상론보다 실제 프로젝트에서 반복 적용할 수 있는 기준을 정의합니다.
 - Standard 변경과 관련된 문서 링크, 규칙 참조와 Agent 읽기 순서를 함께 검토합니다.
+- `.PROJECT_DEFAULT_VERSION`이 변경되면 MAJOR, MINOR와 PATCH 구분 없이 같은 작업에서 `updates/<대상 버전>.md` self-contained 마이그레이션 프롬프트와 `updates/README.md` index를 작성합니다.
+- 대응하는 update 문서가 없거나 기존 프로젝트에서 변경을 재현할 수 없으면 새 버전 변경을 완료하거나 배포하지 않습니다.
 
 ## 읽기 순서
 
