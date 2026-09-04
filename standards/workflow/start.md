@@ -44,5 +44,6 @@ DB 테이블 정의 Microsoft Excel 편집 링크:
 5. `customs/PROJECT.md`를 만들고 프로젝트 설명, 산출물 링크, 접근 수단과 확인한 연결 상태를 기록합니다.
 6. 사용자의 첫 번째 완성 목표를 `REQ-001`로 제안하고 필요한 질문을 이어갑니다.
 7. Requirement의 각 단계가 확정될 때 저장소 문서와 대응하는 Microsoft Excel 또는 Figma 산출물을 함께 갱신하고 실제 반영 내용을 다시 확인합니다.
+8. 현재 주 컨텍스트는 Architect 역할로 Requirement를 `Ready`까지 작성합니다. 사용자가 구현 진행을 요청하면 [Context Handoff](context-handoff.md)에 따라 프로젝트 전용 Developer Agent 하나를 별도 컨텍스트로 실행합니다.
 
 앱 연결과 파일 권한을 확인한 뒤에도 Microsoft Excel 통합 문서나 Figma에 직접 접근할 수 없으면 저장소 Requirement를 먼저 완성하고, 산출물에 반영할 정확한 내용을 사용자에게 제공합니다. 접근할 수 없는 산출물을 갱신했다고 표현하지 않습니다.

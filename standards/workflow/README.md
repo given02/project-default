@@ -7,10 +7,9 @@
 ```text
 start
 → 프로젝트와 산출물 링크 초기화
-→ Requirement 정의
-→ 산출물 갱신
-→ 코드와 테스트
-→ 테스트 결과 갱신
+→ Architect 컨텍스트에서 Requirement 정의와 Ready 승인
+→ Developer Agent 컨텍스트에서 In Progress 점유, 코드와 테스트 및 Review 전환
+→ 기존 Architect 컨텍스트에서 다음 역할 Ready 또는 Done 승인
 → 다음 Requirement 반복
 ```
 
@@ -30,6 +29,7 @@ Workflow는 프로젝트별 값이나 제품 의미를 소유하지 않습니다
 - [Start Prompt](start.md): 사용자가 `start`를 입력했을 때 실행할 초기 질문과 후속 절차
 - [External Document Access](document-access.md): SharePoint와 Figma 앱을 통한 원본 문서 접근, 권한 확인과 대체 절차
 - [Artifact Templates](artifacts.md): 요구사항, 기능, 화면, Database와 테스트 산출물 생성 규격
+- [Context Handoff](context-handoff.md): Architect와 Developer의 컨텍스트, 모델, 실행 소유권과 상태 전이 절차
 
 ## 변경 권한
 
@@ -42,4 +42,5 @@ clone으로 생성한 실제 프로젝트에서는 `standards/workflow/`를 읽�
 1. 프로젝트를 시작할 때 `start.md`
 2. 외부 링크에 접근할 때 `document-access.md`
 3. 외부 산출물을 생성하거나 갱신할 때 `artifacts.md`
-4. 현재 작업의 Requirement와 관련 Standards 및 Exceptions
+4. Requirement를 정의하거나 구현 역할에 전달할 때 `context-handoff.md`
+5. 현재 작업의 Requirement와 관련 Standards 및 Exceptions

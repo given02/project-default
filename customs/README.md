@@ -84,6 +84,7 @@ REQ-003-account-deletion.md
 → Database 설계
 → 테스트 계획
 → Ready 승인
+→ Developer Agent 컨텍스트 인수인계와 In Progress 점유
 → Service 실패 단위 테스트
 → 최소 구현과 리팩터링
 → Controller API 테스트와 문서
@@ -109,6 +110,15 @@ Draft
 ## 담당 역할
 
 Architect, Backend Developer, Frontend Developer 중 필요한 역할
+
+## 실행 소유권
+
+- 다음 구현 역할: Backend Developer, Frontend Developer 또는 해당 없음
+- 활성 Agent: Agent 이름 또는 해당 없음
+- 시작 시각: ISO 8601 또는 해당 없음
+- 완료 시각: ISO 8601 또는 해당 없음
+- 변경 예상 영역: 구현 전에 기록할 디렉터리 또는 파일 범위
+- 완료된 역할: 완료된 역할 또는 해당 없음
 
 ## 목표
 
@@ -247,8 +257,14 @@ Service와 application use case는 각 테스트 ID의 실패를 먼저 확인�
 
 상태 정의와 전이는 [AGENTS.md](../AGENTS.md#requirement-상태)를 따릅니다.
 
+Architect와 Developer는 [Context Handoff](../standards/workflow/context-handoff.md)에 따라 별도 컨텍스트에서 작업합니다. Architect는 `Draft → Ready`와 `Review → Ready | Done`, Developer는 `Ready → In Progress → Review | Blocked`를 담당합니다.
+
 - Architect는 Requirement를 생성하고 명세, 테스트 계획과 검토 결과를 작성합니다.
 - Developer는 명세를 읽기 전용으로 사용하고 상태, Blocked, 자신이 담당한 구현 결과와 테스트 결과만 작성합니다.
+- Architect는 Ready로 전환할 때 다음 구현 역할을 하나만 지정합니다.
+- Developer는 production code 수정 전에 In Progress로 전환하고 실행 소유권을 기록한 뒤 상태와 소유권을 다시 확인합니다.
+- 다른 Agent는 Requirement가 In Progress이면 실행 소유권의 범위와 관계없이 같은 Requirement의 파일을 변경하지 않습니다.
+- Developer는 Review 또는 Blocked로 전환할 때 완료 시각과 실제 변경 영역을 구현 결과에 기록합니다.
 - 명세 변경이 필요하면 Developer가 임의로 수정하지 않고 Blocked 사유와 필요한 결정을 기록합니다.
 
 ## 외부 산출물 동기화

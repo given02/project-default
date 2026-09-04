@@ -18,7 +18,7 @@ Standard 자체의 변경은 `project-default`에서 Template Maintainer가 수�
 
 ```text
 standards/
-├── workflow/                    프로젝트 시작과 산출물 운영 절차
+├── workflow/                    프로젝트 시작, 산출물 운영과 역할별 컨텍스트 인수인계 절차
 ├── common/                      기술 독립적인 아키텍처, 코드 품질, 테스트와 보안
 ├── backend/
 │   ├── 공통 Backend 규칙

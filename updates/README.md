@@ -21,6 +21,7 @@
 6.0.0 프로젝트
 → 6.1.0 update 실행
 → 7.0.0 update 실행
+→ 7.1.0 update 실행
 ```
 
 ## 파일 이름
@@ -70,6 +71,7 @@ Template Maintainer는 MAJOR, MINOR와 PATCH를 포함해 `.PROJECT_DEFAULT_VERS
 update 문서가 변경할 수 있는 기본 템플릿 관리 영역은 다음과 같습니다.
 
 - `.PROJECT_DEFAULT_VERSION`
+- `.codex/agents/`
 - `AGENTS.md`
 - `README.md`의 project-default 운영 구역
 - `standards/`
@@ -93,3 +95,4 @@ update 문서가 변경할 수 있는 기본 템플릿 관리 영역은 다음�
 | --------- | --------- | ---- | --------- |
 | `6.0.0` | `6.1.0` | [6.1.0](6.1.0.md) | SharePoint 원본 문서 접근 절차와 선택적 update 체계 |
 | `6.1.0` | `7.0.0` | [7.0.0](7.0.0.md) | Service 단위 테스트 TDD, Controller API 문서와 Flyway 필수화 |
+| `7.0.0` | `7.1.0` | [7.1.0](7.1.0.md) | 역할별 컨텍스트와 모델 분리, 실행 소유권과 순차 상태 전이 |

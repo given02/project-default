@@ -16,11 +16,13 @@
 - 중요한 변경은 관련 문서, 코드와 테스트를 같은 작업에서 정렬합니다.
 - Service와 application use case는 단위 테스트 기반 TDD로 구현하고 Controller는 Web/API 경계 테스트에서 API 문서를 생성합니다.
 - Spring Boot에서 관계형 Database를 사용하면 Flyway migration으로 schema를 관리합니다.
+- Requirement 명세와 승인은 고성능 Architect 컨텍스트가, 구현과 테스트는 비용 효율 Developer Agent 컨텍스트가 담당합니다.
 
 ## 저장소 구조
 
 ```text
 standards/    프로젝트 운영, 코드와 기술별 구현에 적용할 개인 표준
+.codex/agents/ 역할별 모델과 구현 범위를 가진 프로젝트 전용 Developer Agent
 customs/      요구사항별 명세, 구현과 검증 기록
 exceptions/   Standards를 벗어나는 프로젝트별 예외
 updates/      기존 프로젝트용 버전별 업데이트 프롬프트
@@ -39,6 +41,7 @@ updates/      기존 프로젝트용 버전별 업데이트 프롬프트
 - 프로젝트 초기 질문: [Start Prompt](standards/workflow/start.md)
 - SharePoint와 Figma 원본 접근 절차: [External Document Access](standards/workflow/document-access.md)
 - Microsoft Excel과 Figma 산출물 규격: [Artifact Templates](standards/workflow/artifacts.md)
+- 역할별 컨텍스트, 모델과 실행 소유권: [Context Handoff](standards/workflow/context-handoff.md)
 
 Workflow는 제품 의미를 소유하지 않으며 실제 프로젝트 값과 링크는 Customs에 기록합니다.
 
@@ -98,10 +101,13 @@ Agent 역할, 변경 권한, 상태 전이와 역할별 사용법은 [AGENTS.md]
 8. Agent가 [External Document Access](standards/workflow/document-access.md)에 따라 SharePoint와 Figma 원본 접근 및 권한을 확인합니다.
 9. Architect가 `customs/PROJECT.md`와 `customs/REQ-001-<영문 이름>.md`를 만들고 요구사항부터 테스트 계획까지 사용자와 순서대로 확정합니다.
 10. [Artifact Templates](standards/workflow/artifacts.md)를 기준으로 요구사항 정의서, 기능 명세서, Figma 화면 설계, DB 테이블 정의서와 테스트 시나리오 문서를 함께 갱신합니다.
-11. Requirement가 Ready가 되면 Agent가 Service 단위 테스트를 먼저 작성하고 Red-Green-Refactor로 구현합니다.
-12. Controller Web/API 테스트와 Spring REST Docs, Flyway migration 및 필요한 실제 경계 통합 테스트를 완성합니다.
-13. 실행한 테스트와 실제 결과를 Requirement와 테스트 결과서에 기록하고 Review와 Done으로 전환합니다.
-14. 다음 요구사항을 새 파일로 만들고 같은 과정을 반복합니다.
+11. 최신 고성능 모델을 사용하는 Architect 주 컨텍스트가 Requirement를 Ready로 승인하고 다음 구현 역할을 지정합니다.
+12. Architect가 `.codex/agents/`의 비용 효율 Developer Agent 하나를 별도 컨텍스트로 실행합니다.
+13. Developer가 코드 수정 전에 In Progress로 전환해 실행 소유권을 점유하고 Service 단위 테스트를 먼저 작성해 Red-Green-Refactor로 구현합니다.
+14. Controller Web/API 테스트와 Spring REST Docs, Flyway migration 및 필요한 실제 경계 통합 테스트를 완성합니다.
+15. Developer가 테스트 결과를 기록하고 Review로 전환한 뒤 종료합니다.
+16. 기존 Architect 주 컨텍스트가 저장소의 명세, 코드와 결과를 검토합니다. 다음 구현 역할이 남으면 Ready로 넘기고, 모두 완료되면 Done으로 승인합니다.
+17. 다음 요구사항을 새 파일로 만들고 같은 과정을 반복합니다.
 
 프로젝트 전체 양식을 먼저 작성하지 않습니다. 현재 요구사항을 구현하고 검증하는 데 필요한 내용만 대화를 통해 구체화합니다.
 
