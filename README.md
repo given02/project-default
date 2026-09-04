@@ -14,6 +14,8 @@
 - 요구사항은 독립적으로 구현하고 검증할 수 있는 사용자 결과 단위로 작성합니다.
 - Agent는 문서에 없는 제품 의미나 비즈니스 규칙을 코드에서 추측하지 않습니다.
 - 중요한 변경은 관련 문서, 코드와 테스트를 같은 작업에서 정렬합니다.
+- Service와 application use case는 단위 테스트 기반 TDD로 구현하고 Controller는 Web/API 경계 테스트에서 API 문서를 생성합니다.
+- Spring Boot에서 관계형 Database를 사용하면 Flyway migration으로 schema를 관리합니다.
 
 ## 저장소 구조
 
@@ -50,7 +52,9 @@ Workflow는 제품 의미를 소유하지 않으며 실제 프로젝트 값과 �
 → 화면 설계
 → Database 설계
 → 테스트 계획
-→ 코드 작성
+→ Service 단위 테스트와 구현
+→ Controller API 테스트와 문서
+→ Flyway와 필요한 통합 테스트
 → 테스트 결과
 → 완료
 ```
@@ -94,9 +98,10 @@ Agent 역할, 변경 권한, 상태 전이와 역할별 사용법은 [AGENTS.md]
 8. Agent가 [External Document Access](standards/workflow/document-access.md)에 따라 SharePoint와 Figma 원본 접근 및 권한을 확인합니다.
 9. Architect가 `customs/PROJECT.md`와 `customs/REQ-001-<영문 이름>.md`를 만들고 요구사항부터 테스트 계획까지 사용자와 순서대로 확정합니다.
 10. [Artifact Templates](standards/workflow/artifacts.md)를 기준으로 요구사항 정의서, 기능 명세서, Figma 화면 설계, DB 테이블 정의서와 테스트 시나리오 문서를 함께 갱신합니다.
-11. Requirement가 Ready가 되면 Agent가 코드와 테스트를 작성합니다.
-12. 실행한 테스트와 실제 결과를 Requirement와 테스트 결과서에 기록하고 Review와 Done으로 전환합니다.
-13. 다음 요구사항을 새 파일로 만들고 같은 과정을 반복합니다.
+11. Requirement가 Ready가 되면 Agent가 Service 단위 테스트를 먼저 작성하고 Red-Green-Refactor로 구현합니다.
+12. Controller Web/API 테스트와 Spring REST Docs, Flyway migration 및 필요한 실제 경계 통합 테스트를 완성합니다.
+13. 실행한 테스트와 실제 결과를 Requirement와 테스트 결과서에 기록하고 Review와 Done으로 전환합니다.
+14. 다음 요구사항을 새 파일로 만들고 같은 과정을 반복합니다.
 
 프로젝트 전체 양식을 먼저 작성하지 않습니다. 현재 요구사항을 구현하고 검증하는 데 필요한 내용만 대화를 통해 구체화합니다.
 

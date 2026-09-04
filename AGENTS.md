@@ -106,7 +106,7 @@ Draft | Ready | In Progress | Blocked | Review
 
 - `Draft`: 명세와 테스트 계획을 작성 중이며 구현하지 않습니다.
 - `Ready`: 구현에 필요한 결정과 테스트 계획이 완료되어 구현을 시작할 수 있습니다.
-- `In Progress`: 코드와 테스트를 작성하고 있습니다.
+- `In Progress`: Service 단위 테스트의 Red-Green-Refactor, Controller API 테스트와 필요한 통합 테스트를 수행하고 있습니다.
 - `Blocked`: 누락된 결정, 충돌 또는 선행 조건 때문에 진행할 수 없습니다.
 - `Review`: 구현과 테스트 결과가 기록되어 통합 검토를 기다립니다.
 - `Done`: 명세, 구현, 테스트와 검토가 일치합니다.
@@ -123,6 +123,7 @@ Architect는 Product Manager, UX/UI 설계 책임자, Software Architect와 작�
 - 사용자의 설명에서 독립적으로 검증 가능한 사용자 결과를 식별합니다.
 - Requirement 파일을 만들고 요구사항, 기능 명세, 화면 설계와 Database 설계를 순서대로 작성합니다.
 - 구현 전에 테스트 항목, 기대 결과와 검증 방법을 정의합니다.
+- 테스트 계획에서 Service 단위, Controller Web/API와 실제 기술 경계 통합 테스트의 책임을 구분합니다.
 - 요구사항 정의와 기능 명세는 각각의 Microsoft Excel 통합 문서, 화면 설계는 Figma, Database 설계는 DB 테이블 정의 Microsoft Excel 통합 문서, 테스트 계획은 테스트 시나리오 및 결과 Microsoft Excel 통합 문서에 반영합니다.
 - 외부 산출물의 링크와 반영 위치를 Requirement에 기록합니다.
 - SharePoint와 Figma 앱의 연결 및 권한을 확인하고 `customs/PROJECT.md`에 접근 상태를 기록합니다.
@@ -161,7 +162,9 @@ Backend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Back
 
 - 현재 Requirement의 기능, Business Rule, API와 Database 설계를 읽습니다.
 - 공통, Backend와 선택된 Database 기술 Standards를 적용합니다.
-- Backend 코드, migration과 테스트를 구현합니다.
+- Service와 application use case는 실패하는 단위 테스트를 먼저 작성하고 최소 구현과 리팩터링을 반복합니다.
+- Controller는 비즈니스 규칙 없이 Web/API 경계 테스트와 Spring REST Docs 문서를 작성합니다.
+- Spring Boot에서 관계형 Database를 사용하면 Flyway migration을 작성하고 필요한 실제 Database 통합 테스트를 수행합니다.
 - Requirement에 변경 파일, 구현 요약, 검증 명령과 실제 결과를 기록합니다.
 - [External Document Access](standards/workflow/document-access.md)에 따라 SharePoint 원본에 접근하고, 실제 테스트 결과를 Microsoft Excel 테스트 시나리오 및 결과서에도 반영합니다.
 - 공유 계약의 누락, 모호함과 충돌을 Architect에게 에스컬레이션합니다.
@@ -169,6 +172,7 @@ Backend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Back
 ### 금지
 
 - Requirement의 명세와 Exceptions를 직접 변경하지 않습니다.
+- Service의 새 비즈니스 동작을 검증하는 실패 단위 테스트보다 production code를 먼저 작성하지 않습니다.
 - 구현 편의를 위해 요구사항, API 또는 Database 의미를 재정의하지 않습니다.
 - persistence model을 공유 API 계약으로 사용하지 않습니다.
 - 현재 Requirement에 포함되지 않은 Frontend 코드나 다른 요구사항을 함께 변경하지 않습니다.
@@ -240,9 +244,10 @@ Blocked 구역에는 구체적인 사유, 필요한 결정, 영향 범위와 이
 1. Architect가 다음 사용자 결과를 하나의 Requirement로 생성합니다.
 2. SharePoint와 Figma 앱으로 외부 원본 접근을 확인하고, 요구사항, 기능 명세, 화면 설계, Database 설계와 테스트 계획을 순서대로 확정하며 대응하는 Microsoft Excel과 Figma 산출물을 함께 갱신합니다.
 3. Ready 기준을 확인하고 구현 역할을 지정합니다.
-4. Developer가 In Progress로 전환하고 코드와 테스트를 작성합니다.
-5. Developer가 실제 테스트 결과를 Requirement와 Microsoft Excel 테스트 결과서에 기록하고 Review로 전환합니다.
-6. Architect가 명세, 코드와 결과를 통합 검토해 Done으로 승인합니다.
-7. 다음 Requirement에서 같은 과정을 반복합니다.
+4. Developer가 In Progress로 전환하고 Service 단위 테스트의 Red-Green-Refactor를 수행합니다.
+5. Developer가 Controller Web/API 테스트와 API 문서, Flyway 및 필요한 통합 테스트를 완성합니다.
+6. Developer가 실제 테스트 결과를 Requirement와 Microsoft Excel 테스트 결과서에 기록하고 Review로 전환합니다.
+7. Architect가 명세, 코드와 결과를 통합 검토해 Done으로 승인합니다.
+8. 다음 Requirement에서 같은 과정을 반복합니다.
 
 각 컨텍스트는 다른 컨텍스트의 대화가 아니라 저장소에 기록된 Requirement 상태와 내용을 통해 협업합니다.

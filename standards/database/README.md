@@ -18,3 +18,5 @@
 | `postgresql/`                                   | PostgreSQL을 선택한 프로젝트의 구현 규칙 |
 
 Database 작업은 이 디렉터리의 공통 규칙을 먼저 적용하고, Requirement에서 PostgreSQL을 선택한 경우 `postgresql/` 규칙을 함께 적용합니다.
+
+Spring Boot에서 관계형 Database를 사용하는 프로젝트는 공통 Database 규칙과 함께 [Spring Boot Flyway Convention](../backend/spring-boot/BE-SPR-06-flyway-convention.md)을 적용합니다.

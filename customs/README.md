@@ -84,13 +84,16 @@ REQ-003-account-deletion.md
 → Database 설계
 → 테스트 계획
 → Ready 승인
-→ 코드와 테스트 작성
+→ Service 실패 단위 테스트
+→ 최소 구현과 리팩터링
+→ Controller API 테스트와 문서
+→ 필요한 통합 테스트
 → 테스트 결과 기록
 → Review
 → Done
 ```
 
-화면이나 Database 변경이 없으면 해당 구역에 `적용하지 않음`과 이유를 기록합니다. 테스트 계획까지 완료하기 전에는 코드를 작성하지 않습니다.
+화면이나 Database 변경이 없으면 해당 구역에 `적용하지 않음`과 이유를 기록합니다. Backend가 없는 Requirement는 Service, Controller와 Flyway 단계를 적용하지 않습니다. 테스트 계획까지 완료하기 전에는 코드를 작성하지 않습니다.
 
 ## 파일 형식
 
@@ -183,16 +186,19 @@ Architect, Backend Developer, Frontend Developer 중 필요한 역할
 - 새로 만들거나 변경할 table과 column
 - type, nullable, default, PK, FK, unique와 check constraint
 - index와 주요 query
-- 생성, 수정, 삭제, 보존과 migration
+- 생성, 수정, 삭제, 보존과 Flyway migration 이름 및 적용 순서
 - Database 변경이 없으면 적용하지 않는 이유
 
 ## 5. 테스트 계획
 
-| ID | 검증 대상 | 사전 조건 | 실행 또는 입력 | 기대 결과 |
-| --- | --------- | --------- | ------------ | --------- |
+| ID | 테스트 유형 | 책임 계층 | 검증 대상 | 사전 조건 | 실행 또는 입력 | 기대 결과 |
+| --- | ----------- | --------- | --------- | --------- | ------------ | --------- |
 
+- `테스트 유형`: Service 단위, Web/API, Persistence 통합, Frontend Component, E2E 또는 수동
+- Service의 정상 결과와 주요 실패 조건을 각각 독립된 단위 테스트로 계획
+- Controller의 HTTP 계약과 Spring REST Docs 생성 테스트 계획
 - 실행할 formatter, lint, test와 build 명령
-- 필요한 수동, 통합 또는 end-to-end 검증
+- 실제 기술 경계에 필요한 persistence, 통합 또는 end-to-end 검증
 
 ## 6. 구현 결과
 
@@ -200,7 +206,8 @@ Architect, Backend Developer, Frontend Developer 중 필요한 역할
 
 - 구현 요약:
 - 변경 파일:
-- migration 또는 생성 파일:
+- Flyway migration 또는 생성 파일:
+- API 문서:
 
 ### Frontend
 
@@ -233,6 +240,8 @@ Architect, Backend Developer, Frontend Developer 중 필요한 역할
 필요하지 않은 구현 역할과 항목에는 `해당 없음`과 이유를 기록합니다.
 
 테스트 ID는 `<Requirement ID>-T<2자리 번호>` 형식을 사용합니다. 예: `REQ-001-T01`. 같은 Requirement 안에서 완료된 테스트 ID를 다른 의미로 재사용하지 않습니다.
+
+Service와 application use case는 각 테스트 ID의 실패를 먼저 확인한 뒤 최소 구현과 리팩터링을 수행합니다. Red-Green-Refactor 단계별 로그는 별도로 관리하지 않으며 최종 테스트 결과와 TDD를 적용하지 못한 범위 및 이유만 기록합니다.
 
 ## 상태와 변경 권한
 
@@ -270,6 +279,7 @@ Architect, Backend Developer, Frontend Developer 중 필요한 역할
 - 필요한 API, 인증, 권한과 외부 계약이 결정되어 있습니다.
 - 화면과 Database 설계가 작성되었거나 적용하지 않는 이유가 있습니다.
 - 테스트 항목, 기대 결과와 실행할 검증 방법이 구현 전에 작성되어 있습니다.
+- Service 단위 테스트와 Controller Web/API 테스트의 책임 범위가 구분되어 있습니다.
 - 선행 Requirement가 Done 상태입니다.
 - 적용되는 Exception이 Requirement에 연결되어 있습니다.
 - Microsoft Excel과 Figma 산출물에 관련 명세와 테스트 계획이 반영되었거나, 접근할 수 없는 이유와 반영할 내용이 기록되어 있습니다.
@@ -280,7 +290,9 @@ Architect, Backend Developer, Frontend Developer 중 필요한 역할
 Review로 전환하기 전에 다음을 확인합니다.
 
 - 코드와 테스트가 Requirement 범위와 acceptance criteria를 충족합니다.
-- 필요한 migration과 생성 파일이 함께 작성되었습니다.
+- Service의 정상 결과와 주요 실패 조건이 단위 테스트로 검증되었습니다.
+- Controller의 HTTP 계약이 Web/API 경계 테스트로 검증되고 API 문서가 생성되었습니다.
+- 필요한 Flyway migration과 실제 Database 통합 테스트가 함께 작성되었습니다.
 - 계획한 테스트의 실제 결과와 증거가 기록되었습니다.
 - Microsoft Excel 테스트 시나리오 및 결과서에 실제 결과가 반영되었거나, 접근할 수 없는 이유와 반영할 내용이 기록되었습니다.
 - 실행하지 못한 검증과 이유가 기록되었습니다.

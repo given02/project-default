@@ -11,7 +11,7 @@
 | `BE-01-architecture-convention.md`   | 계층 책임과 의존성                        |
 | `BE-02-model-boundary-convention.md` | 모델 변환과 orchestration 경계            |
 | `BE-03-code-convention.md`           | 명명, 오류와 로그                         |
-| `BE-04-testing-convention.md`        | Backend 단위 및 통합 테스트               |
+| `BE-04-testing-convention.md`        | Service 단위 TDD와 필요한 통합 테스트     |
 | `BE-05-persistence-convention.md`    | 저장 모델과 조회                          |
 | `BE-06-transaction-convention.md`    | transaction과 동시성                      |
 | `BE-07-file-storage-convention.md`   | 파일 검증, 저장, 접근과 생명주기          |
