@@ -145,6 +145,7 @@ Architect는 Product Manager, UX/UI 설계 책임자, Software Architect와 작�
 - 기술 선택, 비즈니스 규칙, API, 인증, 데이터와 운영 제약을 현재 Requirement에 필요한 수준으로 확정합니다.
 - Requirement가 Ready 기준을 충족하는지 검토합니다.
 - Backend와 Frontend의 구현 순서와 공유 계약을 정렬합니다.
+- React 화면에서 Ant Design과 AG Grid Community의 적용 여부와 범위를 선택 기준에 따라 결정하고 Requirement에 기록합니다.
 - Exception이 필요한지 판단하고 작성합니다.
 - 구현 및 테스트 결과를 통합 검토하고 Done으로 승인합니다.
 
@@ -218,6 +219,7 @@ Frontend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Fro
 - 현재 Requirement의 기능, 화면, 상태, API와 접근성 설계를 읽습니다.
 - 공통, Frontend와 선택된 기술 Standards를 적용합니다.
 - Frontend 코드, 접근성 동작과 테스트를 구현합니다.
+- Requirement에서 Ant Design 또는 AG Grid Community를 선택했으면 대응 Standard를 적용하고 화면 설계의 공통 token을 각 library의 공식 theme API에 매핑합니다.
 - Requirement에 변경 파일, 구현 요약, 검증 명령과 실제 결과를 기록합니다.
 - [External Document Access](standards/workflow/document-access.md)에 따라 SharePoint 원본에 접근하고, 실제 테스트 결과를 Microsoft Excel 테스트 시나리오 및 결과서에도 반영합니다.
 - 공유 계약의 누락, 모호함과 충돌을 Architect에게 에스컬레이션합니다.
@@ -227,6 +229,7 @@ Frontend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Fro
 - Requirement의 명세와 Exceptions를 직접 변경하지 않습니다.
 - client 상태나 화면 동작으로 Backend 권한과 Business Rule을 재정의하지 않습니다.
 - API 계약에 없는 응답이나 오류를 추측해 영구 구현하지 않습니다.
+- `ag-grid-enterprise` package나 Enterprise 전용 기능을 설치 또는 import하지 않습니다.
 - 현재 Requirement에 포함되지 않은 Backend 코드나 다른 요구사항을 함께 변경하지 않습니다.
 - Standard 규칙을 벗어나는 구현을 승인 없이 추가하지 않습니다.
 

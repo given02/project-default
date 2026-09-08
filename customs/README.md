@@ -187,6 +187,10 @@ Architect, Backend Developer, Frontend Developer 중 필요한 역할
 
 - 화면 또는 route
 - 구성 요소와 사용자 action
+- UI library 선택: Ant Design, 다른 방식 또는 해당 없음과 선택 이유
+- Data grid 선택: 일반 table, Ant Design Table, AG Grid Community 또는 해당 없음과 선택 이유
+- AG Grid Community 선택 시 예상 data 규모, 필요한 기능과 client/server 처리 경계
+- Figma에서 확정한 token과 선택한 Ant Design 또는 AG Grid의 theme mapping
 - loading, empty, error, disabled, success와 권한 상태
 - 반응형과 접근성
 - 화면이 없으면 적용하지 않는 이유
@@ -294,6 +298,7 @@ Architect와 Developer는 [Context Handoff](../standards/workflow/context-handof
 - 정상 흐름, Business Rule, 입력, 출력과 오류가 결정되어 있습니다.
 - 필요한 API, 인증, 권한과 외부 계약이 결정되어 있습니다.
 - 화면과 Database 설계가 작성되었거나 적용하지 않는 이유가 있습니다.
+- React 화면에서 Ant Design 또는 AG Grid Community를 사용하면 적용 범위와 공통 token의 theme mapping이 결정되어 있습니다.
 - 테스트 항목, 기대 결과와 실행할 검증 방법이 구현 전에 작성되어 있습니다.
 - Service 단위 테스트와 Controller Web/API 테스트의 책임 범위가 구분되어 있습니다.
 - 선행 Requirement가 Done 상태입니다.
