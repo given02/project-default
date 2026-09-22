@@ -16,6 +16,7 @@
 - 중요한 변경은 관련 문서, 코드와 테스트를 같은 작업에서 정렬합니다.
 - Service와 application use case는 단위 테스트 기반 TDD로 구현하고 Controller는 Web/API 경계 테스트에서 API 문서를 생성합니다.
 - Spring Boot에서 관계형 Database를 사용하면 Flyway migration으로 schema를 관리합니다.
+- Backend package는 business domain을 먼저 나누고 domain 내부를 `api`, `application`, `domain`, `infrastructure` 책임으로 구성합니다.
 - Requirement 명세와 승인은 고성능 Architect 컨텍스트가, 구현과 테스트는 비용 효율 Developer Agent 컨텍스트가 담당합니다.
 - React 업무·관리 화면은 Ant Design을 기본 UI library 후보로 검토하고, 일반 Table로 충족할 수 없는 경우에만 AG Grid Community를 사용합니다.
 

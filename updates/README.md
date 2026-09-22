@@ -23,6 +23,7 @@
 → 7.0.0 update 실행
 → 7.1.0 update 실행
 → 7.2.0 update 실행
+→ 7.3.0 update 실행
 ```
 
 ## 파일 이름
@@ -98,3 +99,4 @@ update 문서가 변경할 수 있는 기본 템플릿 관리 영역은 다음�
 | `6.1.0` | `7.0.0` | [7.0.0](7.0.0.md) | Service 단위 테스트 TDD, Controller API 문서와 Flyway 필수화 |
 | `7.0.0` | `7.1.0` | [7.1.0](7.1.0.md) | 역할별 컨텍스트와 모델 분리, 실행 소유권과 순차 상태 전이 |
 | `7.1.0` | `7.2.0` | [7.2.0](7.2.0.md) | Ant Design과 AG Grid Community 조건부 표준 및 공통 theme token |
+| `7.2.0` | `7.3.0` | [7.3.0](7.3.0.md) | domain 우선 Backend package와 실용적인 port·adapter 구조 |
