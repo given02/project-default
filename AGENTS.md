@@ -226,6 +226,7 @@ Frontend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Fro
 - 공통, Frontend와 선택된 기술 Standards를 적용합니다.
 - Frontend 코드, 접근성 동작과 테스트를 구현합니다.
 - Frontend 테스트는 검증 대상 기능 가까이에 두며 별도 `frontend/e2e`를 생성하지 않습니다. E2E 실행 결과 directory는 추적하지 않습니다.
+- React 테스트는 Vitest와 React Testing Library로 사용자 동작을 검증하고, API 경계는 MSW로 대체합니다. Browser E2E가 필요한 경우에만 Playwright를 적용합니다.
 - Requirement에서 Ant Design 또는 AG Grid Community를 선택했으면 대응 Standard를 적용하고 화면 설계의 공통 token을 각 library의 공식 theme API에 매핑합니다.
 - Requirement에 변경 파일, 구현 요약, 검증 명령과 실제 결과를 기록합니다.
 - [External Document Access](standards/workflow/document-access.md)에 따라 SharePoint 원본에 접근하고, 실제 테스트 결과를 Microsoft Excel 테스트 시나리오 및 결과서에도 반영합니다.
