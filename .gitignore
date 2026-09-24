@@ -48,6 +48,9 @@ dist/
 .turbo/
 coverage/
 .nyc_output/
+test-results/
+playwright-report/
+blob-report/
 
 # Python virtual environments, caches, and reports
 .venv/

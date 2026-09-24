@@ -19,6 +19,7 @@
 - Backend package는 business domain을 먼저 나누고 domain 내부를 `api`, `application`, `domain`, `infrastructure` 책임으로 구성합니다.
 - Java 기반 Spring Boot는 Lombok으로 안전한 반복 코드를 줄이고, `.editorconfig`와 build formatter로 4칸 들여쓰기와 읽기 쉬운 줄바꿈을 강제합니다.
 - Python은 `.editorconfig`와 Ruff로 4칸 들여쓰기, 100자 줄바꿈, import와 기본 lint를 자동 검증합니다.
+- Backend 통합 테스트는 `src/test`에, Frontend 테스트는 검증 대상 `src` 기능 가까이에 두고 별도 `src/integrationTest`나 `frontend/e2e` directory를 만들지 않습니다.
 - Git에는 재현에 필요한 파일을 남기고 로컬 설정, 캐시, 로그와 빌드 결과는 `.gitignore`로 제외합니다.
 - Requirement 명세와 승인은 `gpt-6-sol`/`high` Architect 컨텍스트가, 구현과 테스트는 `gpt-6-luna`/`medium` Developer Agent 컨텍스트가 담당합니다.
 - React 업무·관리 화면은 Ant Design을 기본 UI library 후보로 검토하고, 일반 Table로 충족할 수 없는 경우에만 AG Grid Community를 사용합니다.

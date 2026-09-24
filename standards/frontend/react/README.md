@@ -16,6 +16,7 @@
 | `FE-REACT-06-testing-convention.md`           | 사용자 중심 component 및 통합 테스트 |
 | `FE-REACT-07-ant-design-convention.md`        | Ant Design 선택, theme과 component 사용 |
 | `FE-REACT-08-ag-grid-convention.md`           | AG Grid Community 선택, theme과 data grid 구현 |
+| `FE-REACT-09-test-source-layout.md`           | Component·E2E 테스트 위치와 실행 결과     |
 | `FE-TS-01-type-safety-convention.md`          | TypeScript type 안전성                |
 | `FE-TS-02-contract-and-generation-convention.md` | API type과 생성 코드               |
 
