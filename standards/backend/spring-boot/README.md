@@ -14,4 +14,6 @@
 | `BE-SPR-04-http-convention.md`        | 직렬화, HTTP와 security context           |
 | `BE-SPR-05-testing-convention.md`     | Controller API 문서와 경계 통합 테스트    |
 | `BE-SPR-06-flyway-convention.md`      | 관계형 Database의 Flyway migration        |
+| `BE-SPR-07-lombok-convention.md`      | Lombok 적용 범위와 domain·JPA 안전성      |
+| `BE-SPR-08-java-format-convention.md` | Java 형식, 줄바꿈과 자동 formatter        |
 | `spring-data-jpa/`                    | Spring Data JPA를 선택한 persistence 규칙 |

@@ -17,6 +17,7 @@
 - Service와 application use case는 단위 테스트 기반 TDD로 구현하고 Controller는 Web/API 경계 테스트에서 API 문서를 생성합니다.
 - Spring Boot에서 관계형 Database를 사용하면 Flyway migration으로 schema를 관리합니다.
 - Backend package는 business domain을 먼저 나누고 domain 내부를 `api`, `application`, `domain`, `infrastructure` 책임으로 구성합니다.
+- Java 기반 Spring Boot는 Lombok으로 안전한 반복 코드를 줄이고, `.editorconfig`와 build formatter로 4칸 들여쓰기와 읽기 쉬운 줄바꿈을 강제합니다.
 - Requirement 명세와 승인은 `gpt-6-sol`/`high` Architect 컨텍스트가, 구현과 테스트는 `gpt-6-luna`/`medium` Developer Agent 컨텍스트가 담당합니다.
 - React 업무·관리 화면은 Ant Design을 기본 UI library 후보로 검토하고, 일반 Table로 충족할 수 없는 경우에만 AG Grid Community를 사용합니다.
 
@@ -25,6 +26,8 @@
 ```text
 standards/    프로젝트 운영, 코드와 기술별 구현에 적용할 개인 표준
 .codex/        Architect 기본 모델과 역할별 Developer Agent 설정
+.editorconfig  IntelliJ와 editor가 읽는 Java 기본 형식
+lombok.config  repository 전체 Lombok 사용 제한
 customs/      요구사항별 명세, 구현과 검증 기록
 exceptions/   Standards를 벗어나는 프로젝트별 예외
 updates/      기존 프로젝트용 버전별 업데이트 프롬프트
