@@ -26,6 +26,7 @@
 → 7.3.0 update 실행
 → 7.4.0 update 실행
 → 7.5.0 update 실행
+→ 7.6.0 update 실행
 ```
 
 ## 파일 이름
@@ -79,6 +80,7 @@ update 문서가 변경할 수 있는 기본 템플릿 관리 영역은 다음�
 - `.codex/agents/`
 - `.editorconfig`
 - `lombok.config`
+- `ruff.toml`
 - `AGENTS.md`
 - `README.md`의 project-default 운영 구역
 - `standards/`
@@ -107,3 +109,4 @@ update 문서가 변경할 수 있는 기본 템플릿 관리 영역은 다음�
 | `7.2.0` | `7.3.0` | [7.3.0](7.3.0.md) | domain 우선 Backend package와 실용적인 port·adapter 구조 |
 | `7.3.0` | `7.4.0` | [7.4.0](7.4.0.md) | Sol Architect와 Luna Developer 기본 모델 정책 |
 | `7.4.0` | `7.5.0` | [7.5.0](7.5.0.md) | Lombok 기본 사용과 IntelliJ·build Java format 자동화 |
+| `7.5.0` | `7.6.0` | [7.6.0](7.6.0.md) | Python 4칸·100자 형식과 Ruff format·lint 자동화 |

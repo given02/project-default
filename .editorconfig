@@ -14,3 +14,9 @@ max_line_length = 100
 ij_java_right_margin = 100
 ij_java_continuation_indent_size = 4
 
+[*.{py,pyi,pyw}]
+indent_style = space
+indent_size = 4
+tab_width = 4
+max_line_length = 100
+

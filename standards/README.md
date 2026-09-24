@@ -4,7 +4,7 @@
 
 `standards/`는 모든 프로젝트에서 일관되게 유지할 개인 개발 표준의 source of truth입니다.
 
-기술과 독립적인 공통 원칙과 Spring Boot, Spring Data JPA, React, TypeScript, PostgreSQL의 구체적인 구현 방식을 함께 정의합니다.
+기술과 독립적인 공통 원칙과 Spring Boot, Spring Data JPA, Python, React, TypeScript, PostgreSQL의 구체적인 구현 방식을 함께 정의합니다.
 
 ## 불변성
 
@@ -22,6 +22,7 @@ standards/
 ├── common/                      기술 독립적인 아키텍처, 코드 품질, 테스트와 보안
 ├── backend/
 │   ├── 공통 Backend 규칙
+│   ├── python/
 │   └── spring-boot/
 │       └── spring-data-jpa/
 ├── frontend/
@@ -57,6 +58,7 @@ STD-COMMON-010    Common
 STD-BE-010        Backend
 STD-BE-SPR-010    Spring Boot
 STD-BE-JPA-010    Spring Data JPA
+STD-BE-PY-010     Python
 STD-FE-010        Frontend
 STD-FE-REACT-010  React
 STD-FE-TS-010     TypeScript

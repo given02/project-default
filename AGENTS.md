@@ -181,6 +181,7 @@ Backend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Back
 - 현재 Requirement의 기능, Business Rule, API와 Database 설계를 읽습니다.
 - 공통, Backend와 선택된 Database 기술 Standards를 적용합니다.
 - Java 기반 Spring Boot에서는 Lombok으로 반복 코드를 줄이고 repository `.editorconfig`와 build formatter를 모든 수정 Java source에 적용합니다.
+- Python에서는 repository `.editorconfig`와 `ruff.toml`을 모든 수정 Python source에 적용하고 Ruff format과 lint 검증을 실행합니다.
 - Service와 application use case는 실패하는 단위 테스트를 먼저 작성하고 최소 구현과 리팩터링을 반복합니다.
 - Controller는 비즈니스 규칙 없이 Web/API 경계 테스트와 Spring REST Docs 문서를 작성합니다.
 - Spring Boot에서 관계형 Database를 사용하면 Flyway migration을 작성하고 필요한 실제 Database 통합 테스트를 수행합니다.
@@ -196,7 +197,7 @@ Backend Developer는 Ready 상태로 승인된 Requirement 범위 안에서 Back
 - persistence model을 공유 API 계약으로 사용하지 않습니다.
 - 현재 Requirement에 포함되지 않은 Frontend 코드나 다른 요구사항을 함께 변경하지 않습니다.
 - Standard 규칙을 벗어나는 구현을 승인 없이 추가하지 않습니다.
-- formatter 검증에 실패한 Java source를 Review 상태로 넘기지 않습니다.
+- formatter 또는 lint 검증에 실패한 Java·Python source를 Review 상태로 넘기지 않습니다.
 
 ### 필수 읽기 순서
 
