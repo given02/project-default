@@ -21,11 +21,13 @@ Requirement와 저장소 파일이 컨텍스트 사이의 source of truth입니�
 
 | 컨텍스트 | 책임 | 기본 모델 정책 |
 | -------- | ---- | ---------------- |
-| Architect 주 컨텍스트 | Requirement 명세, `Ready` 승인, 구현 통합 검토와 `Done` 승인 | 사용 가능한 최신 고성능 모델, reasoning `high` 이상 |
-| Backend Developer Agent | Ready Requirement의 Backend 코드와 테스트, 결과 기록과 `Review` 전환 | `.codex/agents/backend-developer.toml` |
-| Frontend Developer Agent | Ready Requirement의 Frontend 코드와 테스트, 결과 기록과 `Review` 전환 | `.codex/agents/frontend-developer.toml` |
+| Architect 주 컨텍스트 | Requirement 명세, `Ready` 승인, 구현 통합 검토와 `Done` 승인 | `gpt-6-sol`, reasoning `high` |
+| Backend Developer Agent | Ready Requirement의 Backend 코드와 테스트, 결과 기록과 `Review` 전환 | `gpt-6-luna`, reasoning `medium` |
+| Frontend Developer Agent | Ready Requirement의 Frontend 코드와 테스트, 결과 기록과 `Review` 전환 | `gpt-6-luna`, reasoning `medium` |
 
-- 사용자는 새 프로젝트 작업을 시작할 때 Architect 주 컨텍스트의 모델을 직접 선택합니다.
+- `.codex/config.toml`은 새 Architect 주 컨텍스트의 기본 모델과 reasoning을 설정하고 역할별 Agent 파일은 각 Developer의 기본값을 설정합니다.
+- 사용자가 컨텍스트 생성 시 모델이나 reasoning을 명시적으로 선택하면 프로젝트 기본값보다 우선합니다.
+- `gpt-6-astra`는 자동 fallback으로 사용하지 않으며 매우 복잡한 작업에 사용하려면 사용자가 해당 컨텍스트에 명시적으로 선택합니다.
 - Agent 설정 파일은 현재 템플릿 버전의 기본값입니다. 사용할 수 없는 모델이면 임의 모델로 조용히 대체하지 않고 사용자에게 선택을 요청합니다.
 - Developer 모델은 명세가 완결된 범위의 구현을 전제로 합니다. 제품 의미를 새로 결정해야 하면 구현하지 않고 `Blocked`로 전환합니다.
 - 하나의 컨텍스트는 실행 중 역할을 바꾸지 않습니다.

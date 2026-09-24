@@ -39,8 +39,8 @@ Frontend Developer
 
 ## 컨텍스트, 모델과 실행 소유권
 
-- Architect는 사용 가능한 최신 고성능 모델과 `high` 이상의 reasoning을 선택한 주 컨텍스트에서 `Draft → Ready`와 `Review → Ready | Done`을 담당합니다.
-- Backend와 Frontend 구현은 각각 `.codex/agents/backend-developer.toml`, `.codex/agents/frontend-developer.toml`의 비용 효율 모델을 사용하는 별도 Agent 컨텍스트가 담당합니다.
+- Architect는 `.codex/config.toml`의 기본값인 `gpt-6-sol`, reasoning `high`를 사용하는 주 컨텍스트에서 `Draft → Ready`와 `Review → Ready | Done`을 담당합니다.
+- Backend와 Frontend 구현은 각각 `.codex/agents/backend-developer.toml`, `.codex/agents/frontend-developer.toml`의 `gpt-6-luna`, reasoning `medium`을 사용하는 별도 Agent 컨텍스트가 담당합니다.
 - Architect는 Requirement가 `Ready`이고 사용자가 구현 진행을 요청한 경우에만 Requirement ID 하나와 다음 구현 역할을 지정해 Developer Agent 하나를 실행합니다.
 - Developer Agent는 production code를 수정하기 전에 `Ready → In Progress`로 전환하고 Requirement의 실행 소유권에 역할, Agent, 시작 시각과 변경 예상 영역을 기록합니다.
 - 다른 Agent는 상태가 `Ready`가 아니거나 다음 구현 역할이 자신과 다르면 해당 Requirement와 관련된 파일을 변경하지 않습니다.
@@ -48,6 +48,7 @@ Frontend Developer
 - Backend와 Frontend가 모두 필요하면 먼저 실행한 역할이 `Review`로 전환한 뒤 Architect가 결과를 검토하고 다음 역할을 지정해 `Ready`로 전환합니다.
 - Architect는 Developer가 작업하는 동안 같은 Requirement의 production code를 수정하지 않으며, Developer는 Architect의 명세와 승인 구역을 수정하지 않습니다.
 - 컨텍스트 사이의 인수인계는 대화 복사가 아니라 저장소의 Requirement, 실제 변경 파일과 검증 결과를 사용합니다.
+- 사용자가 명시적으로 다른 모델을 선택하면 해당 컨텍스트에만 우선하며, `gpt-6-astra`를 비용이 높은 기본값이나 자동 fallback으로 사용하지 않습니다.
 - 지정된 모델을 사용할 수 없으면 임의 모델로 대체하지 않고 사용자에게 모델 선택을 요청합니다.
 - 여러 쓰기 Agent를 동시에 실행하지 않습니다.
 
@@ -262,7 +263,7 @@ Blocked 구역에는 구체적인 사유, 필요한 결정, 영향 범위와 이
 
 ## 반복 운영
 
-1. 사용자가 최신 고성능 모델을 선택한 Architect 주 컨텍스트에서 다음 사용자 결과를 하나의 Requirement로 생성합니다.
+1. `.codex/config.toml`의 `gpt-6-sol`, reasoning `high`를 기본으로 사용하는 Architect 주 컨텍스트에서 다음 사용자 결과를 하나의 Requirement로 생성합니다.
 2. SharePoint와 Figma 앱으로 외부 원본 접근을 확인하고, 요구사항, 기능 명세, 화면 설계, Database 설계와 테스트 계획을 순서대로 확정하며 대응하는 Microsoft Excel과 Figma 산출물을 함께 갱신합니다.
 3. Ready 기준을 확인하고 구현 역할을 지정합니다.
 4. Architect가 다음 구현 역할을 지정하고 프로젝트 전용 Developer Agent 하나를 별도 컨텍스트로 실행합니다. Developer는 코드 수정 전에 In Progress로 전환해 실행 소유권을 점유하고 Service 단위 테스트의 Red-Green-Refactor를 수행합니다.
