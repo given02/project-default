@@ -63,6 +63,7 @@ Frontend Developer
 - 이전 대화나 다른 Agent의 기억을 필수 프로젝트 맥락으로 사용하지 않습니다.
 - 같은 개념을 여러 Requirement에 복사하지 않고 소유 Requirement ID를 참조합니다.
 - 문서와 구현이 충돌하면 구현을 기준으로 문서를 조용히 변경하지 않습니다.
+- 새 파일을 stage하기 전 추적 대상인지 확인하고, commit 전 staged 파일 목록에서 임시 파일과 secret이 없는지 검토합니다.
 
 ## 문서 영역과 변경 권한
 

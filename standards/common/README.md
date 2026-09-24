@@ -15,3 +15,4 @@
 | `COMMON-05-security-and-privacy.md`    | 비밀정보, 권한과 개인정보 보호 기준 |
 | `COMMON-06-git-commit-convention.md`   | commit 단위와 메시지 규칙           |
 | `COMMON-07-git-history-convention.md`  | 공유 branch와 history 규칙          |
+| `COMMON-08-repository-content-convention.md` | Git 추적 대상, ignore와 staging 점검 |

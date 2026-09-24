@@ -1,1 +1,66 @@
 .DS_Store
+Thumbs.db
+
+# Editor and operating-system files
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+
+# Local environment and secrets; keep shareable examples
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+!.env.*.example
+!.env.*.sample
+!.env.*.template
+
+# Logs and local output
+*.log
+logs/
+/output/
+/outputs/
+/tmp/
+/temp/
+/scratch/
+
+# Codex workspace state (keep .codex/config.toml and .codex/agents/)
+/.codex/cache/
+/.codex/tmp/
+/.codex/logs/
+/.codex/outputs/
+
+# Java and Gradle build output
+.gradle/
+build/
+target/
+out/
+
+# Node and frontend build output
+node_modules/
+dist/
+.next/
+.nuxt/
+.vite/
+.turbo/
+coverage/
+.nyc_output/
+
+# Python virtual environments, caches, and reports
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.nox/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+.hypothesis/
+*.egg-info/
