@@ -27,7 +27,7 @@ Workflow는 프로젝트별 값이나 제품 의미를 소유하지 않습니다
 ## 문서
 
 - [Start Prompt](start.md): 사용자가 `start`를 입력했을 때 실행할 초기 질문과 후속 절차
-- [External Document Access](document-access.md): SharePoint와 Figma 앱을 통한 원본 문서 접근, 권한 확인과 대체 절차
+- [External Document Access](document-access.md): Google Drive와 Figma 앱을 통한 원본 문서 접근, 권한 확인과 대체 절차
 - [Artifact Templates](artifacts.md): 요구사항, 기능, 화면, Database와 테스트 산출물 생성 규격
 - [Context Handoff](context-handoff.md): Architect와 Developer의 컨텍스트, 모델, 실행 소유권과 상태 전이 절차
 

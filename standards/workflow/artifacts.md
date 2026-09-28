@@ -4,7 +4,7 @@
 
 이 문서는 새 프로젝트에서 요구사항, 기능, 화면, Database와 테스트 산출물을 처음부터 만들 수 있도록 파일 구조와 필수 항목을 정의합니다. 별도의 외부 원본이나 예시 프로젝트를 참조하지 않습니다.
 
-산출물은 프로젝트별 새 Microsoft Excel 통합 문서와 Figma Design 파일로 생성합니다. Excel 통합 문서는 OneDrive 또는 SharePoint에 저장하고 현재 작업 환경에서 접근 가능한 편집 링크를 사용합니다. 원본 문서 접근과 갱신은 [External Document Access](document-access.md)를 따릅니다. 저장소 Requirement가 구현 source of truth이고 외부 산출물은 검토와 공유를 위해 같은 내용을 구조화한 결과입니다.
+산출물은 프로젝트별 별도의 Google Sheets 스프레드시트와 Figma Design 파일로 생성합니다. 각 스프레드시트는 Google Drive에 저장하고 현재 작업 환경에서 접근 가능한 편집 링크를 사용합니다. 원본 문서 접근과 갱신은 [External Document Access](document-access.md)를 따릅니다. 저장소 Requirement가 구현 source of truth이고 외부 산출물은 검토와 공유를 위해 같은 내용을 구조화한 결과입니다.
 
 ## 공통 작성 규칙
 
@@ -16,7 +16,7 @@
 - 예시 값 대신 현재 프로젝트의 실제 결정만 기록합니다.
 - 변경 내용은 Requirement와 외부 산출물에 같은 작업에서 반영합니다.
 
-모든 Microsoft Excel 산출물은 첫 worksheet에 `Overview`를 둡니다. 상단에는 다음 문서 정보를 기록합니다.
+모든 Google Sheets 산출물은 첫 시트에 `Overview`를 둡니다. 상단에는 다음 문서 정보를 기록합니다.
 
 | 항목 | 내용 |
 | ---- | ---- |
@@ -33,7 +33,7 @@
 
 ## 요구사항 정의서
 
-기능 명세서와 분리된 Microsoft Excel 통합 문서로 생성합니다.
+기능 명세서와 분리된 Google Sheets 스프레드시트로 생성합니다.
 
 ```text
 Overview
@@ -51,7 +51,7 @@ Overview
 
 ## 기능 명세서
 
-요구사항 정의서와 분리된 Microsoft Excel 통합 문서로 생성합니다.
+요구사항 정의서와 분리된 Google Sheets 스프레드시트로 생성합니다.
 
 ```text
 Overview
@@ -92,7 +92,7 @@ Requirement에는 Figma file URL과 관련 page 또는 node URL을 기록합니�
 
 ## DB 테이블 정의서
 
-하나의 Microsoft Excel 통합 문서에 다음 구조로 worksheet를 만듭니다.
+하나의 Google Sheets 스프레드시트에 다음 구조로 시트를 만듭니다.
 
 ```text
 00_Overview      문서 정보와 변경 이력
@@ -141,7 +141,7 @@ NN_<table_name>  table별 정책과 column 정의
 
 ## 테스트 시나리오 및 결과서
 
-하나의 Microsoft Excel 통합 문서에 다음 세 worksheet를 순서대로 만듭니다.
+하나의 Google Sheets 스프레드시트에 다음 세 시트를 순서대로 만듭니다.
 
 ```text
 Overview
@@ -177,11 +177,11 @@ Overview
 
 | Requirement 단계 | 산출물 | 반영 위치 |
 | ---------------- | ------ | --------- |
-| 요구사항 정의 | 요구사항 정의 Microsoft Excel | `요구사항 정의서` |
-| 기능 명세 | 기능 명세 Microsoft Excel | `기능 명세서` |
+| 요구사항 정의 | 요구사항 정의 Google Sheets | `요구사항 정의서` |
+| 기능 명세 | 기능 명세 Google Sheets | `기능 명세서` |
 | 화면 설계 | Figma Design | 관련 page와 node |
-| Database 설계 | DB 테이블 정의 Microsoft Excel | `01_Table_List`, table별 worksheet와 `99_Indexes` |
-| 테스트 계획 | 테스트 Microsoft Excel | 시나리오와 케이스 worksheet의 계획 column |
-| 테스트 결과 | 테스트 Microsoft Excel | 케이스 worksheet의 실제 결과, P/F, 증거와 재검증 column |
+| Database 설계 | DB 테이블 정의 Google Sheets | `01_Table_List`, table별 시트와 `99_Indexes` |
+| 테스트 계획 | 테스트 Google Sheets | 시나리오와 케이스 시트의 계획 column |
+| 테스트 결과 | 테스트 Google Sheets | 케이스 시트의 실제 결과, P/F, 증거와 재검증 column |
 
 외부 산출물에 현재 Requirement를 표현할 항목이 부족하면 의미를 생략하지 않고 필요한 column이나 상세 영역을 추가합니다. 저장소와 외부 산출물이 충돌하면 Requirement를 기준으로 원인을 확인하고 같은 작업에서 정렬합니다.

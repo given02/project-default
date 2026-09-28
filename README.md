@@ -28,15 +28,20 @@
 ## 저장소 구조
 
 ```text
-standards/    프로젝트 운영, 코드와 기술별 구현에 적용할 개인 표준
-.codex/        Architect 기본 모델과 역할별 Developer Agent 설정
-.editorconfig  IntelliJ와 editor가 읽는 Java·Python 기본 형식
-.gitignore     개인 설정, Codex 임시 상태와 재생성 가능한 파일의 추적 제외 규칙
-lombok.config  repository 전체 Lombok 사용 제한
-ruff.toml       repository 전체 Python format과 lint 설정
-customs/      요구사항별 명세, 구현과 검증 기록
-exceptions/   Standards를 벗어나는 프로젝트별 예외
-updates/      기존 프로젝트용 버전별 업데이트 프롬프트
+standards/
+├── workflow/   프로젝트 시작, 외부 산출물 운영과 역할별 인수인계 절차
+├── common/     기술 독립적인 공통 규칙
+├── backend/    Backend와 사용 기술별 구현 규칙
+├── frontend/   Frontend와 사용 기술별 구현 규칙
+└── database/   Database와 사용 기술별 구현 규칙
+.codex/         Architect 기본 모델과 역할별 Developer Agent 설정
+.editorconfig   IntelliJ와 editor가 읽는 Java·Python 기본 형식
+.gitignore      개인 설정, Codex 임시 상태와 재생성 가능한 파일의 추적 제외 규칙
+lombok.config   repository 전체 Lombok 사용 제한
+ruff.toml        repository 전체 Python format과 lint 설정
+customs/        요구사항별 명세, 구현과 검증 기록
+exceptions/     Standards를 벗어나는 프로젝트별 예외
+updates/        기존 프로젝트용 버전별 업데이트 프롬프트
 ```
 
 ### [Standards](standards/README.md)
@@ -45,16 +50,18 @@ updates/      기존 프로젝트용 버전별 업데이트 프롬프트
 
 개별 프로젝트에서는 `standards/`를 수정하지 않습니다. 변경은 `project-default`의 새 버전 배포를 통해서만 이루어집니다.
 
-### [Workflow](standards/workflow/README.md)
+### [Workflow: standards/workflow/](standards/workflow/README.md)
 
 프로젝트를 시작할 때의 질문과 외부 산출물을 생성·갱신하는 반복 절차를 정의합니다.
 
 - 프로젝트 초기 질문: [Start Prompt](standards/workflow/start.md)
-- SharePoint와 Figma 원본 접근 절차: [External Document Access](standards/workflow/document-access.md)
-- Microsoft Excel과 Figma 산출물 규격: [Artifact Templates](standards/workflow/artifacts.md)
+- Google Drive와 Figma 원본 접근 절차: [External Document Access](standards/workflow/document-access.md)
+- Google Sheets와 Figma 산출물 규격: [Artifact Templates](standards/workflow/artifacts.md)
 - 역할별 컨텍스트, 모델과 실행 소유권: [Context Handoff](standards/workflow/context-handoff.md)
 
 Workflow는 제품 의미를 소유하지 않으며 실제 프로젝트 값과 링크는 Customs에 기록합니다.
+
+외부 표준 산출물은 **Google Drive에 저장한 Google Sheets 스프레드시트**와 **Figma 화면 설계 파일**입니다. Google Sheets 원본 접근에는 Codex의 Google Drive 앱을 기본으로 사용하고, 지원되는 Sheets 편집 기능으로 내용을 갱신합니다. Microsoft Excel·Word·PowerPoint는 이 템플릿의 표준 산출물로 사용하지 않습니다. 앱이 실제로 연결되었는지와 원본 파일에 읽기·쓰기 권한이 있는지는 프로젝트마다 확인해야 합니다.
 
 ### [Customs](customs/README.md)
 
@@ -107,9 +114,9 @@ Agent 역할, 변경 권한, 상태 전이와 역할별 사용법은 [AGENTS.md]
 3. `origin`을 신규 프로젝트의 원격 저장소로 변경합니다.
 4. [Standards](standards/README.md)는 수정하지 않습니다.
 5. Agent에게 `start`를 입력합니다.
-6. Codex에서 SharePoint 앱을 Microsoft 계정에 연결하고 화면 설계가 필요하면 Figma 앱도 연결합니다.
-7. [Start Prompt](standards/workflow/start.md)의 질문에 프로젝트 설명, 요구사항·기능·DB·테스트 Microsoft Excel 편집 링크와 Figma 링크를 각각 답변합니다.
-8. Agent가 [External Document Access](standards/workflow/document-access.md)에 따라 SharePoint와 Figma 원본 접근 및 권한을 확인합니다.
+6. Codex에서 Google Drive 앱을 Google 계정에 연결하고 화면 설계가 필요하면 Figma 앱도 연결합니다.
+7. [Start Prompt](standards/workflow/start.md)의 질문에 프로젝트 설명과 **서로 분리된** 요구사항·기능 명세·테스트 Google Sheets 편집 링크를 답변합니다. 화면이 있으면 Figma 링크, Database가 있으면 DB 테이블 정의 Google Sheets 링크도 제공합니다. 화면 또는 Database가 없으면 해당 항목에 `해당 없음`을 적습니다.
+8. Agent가 [External Document Access](standards/workflow/document-access.md)에 따라 Google Drive와 Figma 원본 접근 및 권한을 확인합니다.
 9. Architect가 `customs/PROJECT.md`와 `customs/REQ-001-<영문 이름>.md`를 만들고 요구사항부터 테스트 계획까지 사용자와 순서대로 확정합니다.
 10. [Artifact Templates](standards/workflow/artifacts.md)를 기준으로 요구사항 정의서, 기능 명세서, Figma 화면 설계, DB 테이블 정의서와 테스트 시나리오 문서를 함께 갱신합니다.
 11. `.codex/config.toml`의 `gpt-6-sol`, reasoning `high`를 기본으로 사용하는 Architect 주 컨텍스트가 Requirement를 Ready로 승인하고 다음 구현 역할을 지정합니다.
@@ -122,7 +129,7 @@ Agent 역할, 변경 권한, 상태 전이와 역할별 사용법은 [AGENTS.md]
 
 프로젝트 전체 양식을 먼저 작성하지 않습니다. 현재 요구사항을 구현하고 검증하는 데 필요한 내용만 대화를 통해 구체화합니다.
 
-Microsoft Excel과 Figma는 검토와 공유를 위한 산출물입니다. 구현 기준은 저장소의 Requirement이며, 두 내용이 다르면 Requirement를 기준으로 원인을 확인하고 같은 작업에서 동기화합니다.
+Google Sheets와 Figma는 검토와 공유를 위한 산출물입니다. 구현 기준은 저장소의 Requirement이며, 두 내용이 다르면 Requirement를 기준으로 원인을 확인하고 같은 작업에서 동기화합니다.
 
 신규 프로젝트는 clone한 버전을 기준선으로 유지하며 자동으로 업그레이드하지 않습니다. 사용자가 [공식 update 프롬프트](updates/README.md)를 입력해 명시적으로 승인한 경우에만 중간 버전을 건너뛰지 않고 순차적으로 업그레이드합니다.
 
