@@ -2,7 +2,7 @@
 
 ## 기준
 
-- **STD-BE-JPA-050** `@Transactional`은 use case를 조정하는 application service의 public 진입점에 둡니다.
+- **STD-BE-JPA-050** 하나의 use case가 하나의 transaction을 사용하면 application service의 public 진입점에 `@Transactional`을 두는 선언적 방식을 기본으로 사용합니다.
 - **STD-BE-JPA-051** private method나 self-invocation에 proxy transaction 동작을 기대하지 않습니다.
 - **STD-BE-JPA-052** 읽기 전용 use case에는 `readOnly = true`를 사용하되 routing이나 최적화 효과를 환경별로 검증합니다.
 - **STD-BE-JPA-053** transaction 안에서 HTTP, message broker와 file storage 같은 외부 네트워크 작업을 불필요하게 수행하지 않습니다.

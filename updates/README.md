@@ -32,6 +32,7 @@
 → 7.9.0 update 실행
 → 8.0.0 update 실행
 → 8.1.0 update 실행
+→ 8.2.0 update 실행
 ```
 
 ## 파일 이름
@@ -121,3 +122,4 @@ update 문서가 변경할 수 있는 기본 템플릿 관리 영역은 다음�
 | `7.8.0` | `7.9.0` | [7.9.0](7.9.0.md) | React 테스트 도구, mock 경계와 실행 기준 확정 |
 | `7.9.0` | `8.0.0` | [8.0.0](8.0.0.md) | 외부 표준 산출물을 Microsoft Excel에서 Google Sheets로 전환 |
 | `8.0.0` | `8.1.0` | [8.1.0](8.1.0.md) | Spring Boot 생성자 주입 의존성의 타입 기반 변수명 |
+| `8.1.0` | `8.2.0` | [8.2.0](8.2.0.md) | @Query 금지·QueryDSL 조회 및 @Transactional 기본·TransactionTemplate 예외 |

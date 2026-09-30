@@ -14,3 +14,4 @@
 | `BE-JPA-04-query-convention.md`                | Query, pagination과 성능               |
 | `BE-JPA-05-transaction-convention.md`          | Transaction, lock과 동시성             |
 | `BE-JPA-06-testing-convention.md`              | Mapping, query와 실제 Database 검증    |
+| `BE-JPA-07-programmatic-transaction-convention.md` | TransactionTemplate의 제한적 사용 조건 |

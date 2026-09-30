@@ -9,3 +9,4 @@
 - **STD-BE-JPA-044** native query는 Database 전용 기능이나 측정된 성능 근거가 있을 때 사용하고 결과 mapping과 portability 영향을 명시합니다.
 - **STD-BE-JPA-045** query 최적화는 실제 SQL, 실행 계획과 대표 데이터 분포를 확인한 뒤 수행합니다.
 - **STD-BE-JPA-046** 반복 조회 경로는 query 수를 테스트하거나 관측해 N+1 회귀를 방지합니다.
+- **STD-BE-JPA-047** 조건 조합, join, projection, 정렬 또는 pagination 때문에 derived query가 읽기 어렵거나 표현하기 어려운 조회는 infrastructure의 adapter에서 QueryDSL로 구현합니다. 복잡한 조회가 없는 프로젝트에 QueryDSL dependency와 별도 query adapter를 미리 추가하지 않습니다.
